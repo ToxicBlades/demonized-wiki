@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X } from 'lucide-react'
 
 import {
   NavigationMenu,
@@ -15,7 +15,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 
@@ -118,16 +118,14 @@ export default function NavigationLinks({}: NavigationLinksProps) {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-[300px] sm:w-[350px]">
-          <div className="flex flex-col gap-6 py-4">
-            <div className="flex items-center justify-between">
-              <Link href={RouteConfig.home} className="text-lg font-semibold" onClick={() => setIsOpen(false)}>
+          <SheetHeader>
+            <SheetTitle asChild>
+							<Link href={RouteConfig.home} className="text-lg font-semibold" onClick={() => setIsOpen(false)}>
                 Unofficial Demonized Wiki
               </Link>
-              <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-                <X className="h-5 w-5" />
-                <span className="sr-only">Close menu</span>
-              </Button>
-            </div>
+							</SheetTitle>
+          </SheetHeader>
+          <div className="flex flex-col gap-6 py-4">
             <Accordion type="single" collapsible className="w-full">
               {Navlinks.map((navItem, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
