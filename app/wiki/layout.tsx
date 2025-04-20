@@ -32,7 +32,7 @@ export default async function RootLayout({
           </div>
         </div>
 
-        <main className="flex-grow overflow-auto">{children}</main>
+        <main className="flex-grow overflow-auto min-h-[70vh]">{children}</main>
         <Footer />
       </div>
     </div>

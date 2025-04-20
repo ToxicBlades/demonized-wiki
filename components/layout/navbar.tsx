@@ -37,27 +37,37 @@ const Navlinks = [
     ],
   },
   {
-    trigger: "Game Content",
+    trigger: "Game tabs",
     contentItems: [
-      {
-        title: "Items",
-        content: "Comprehensive database of all in-game items.",
-        href: RouteConfig.guides.community_guides,
+			{
+        title: "Character",
+        content: "Stats,promotion,helper and more...",
+        href: RouteConfig.content.character,
       },
       {
-        title: "Characters",
-        content: "Information about playable characters and NPCs.",
-        href: RouteConfig.guides.community_guides,
+        title: "Item",
+        content: "Gear, materials crafting and more...",
+        href: RouteConfig.content.items,
       },
       {
-        title: "Locations",
-        content: " Maps and details about game world locations.",
-        href: RouteConfig.guides.community_guides,
+        title: "Skill",
+        content: "Skill stones, skill shop and more...",
+        href: RouteConfig.content.locations,
       },
       {
-        title: "Resources",
-        content: "Information about all resources",
-        href: RouteConfig.guides.community_guides,
+        title: "Minion",
+        content: "Minions, monsters,phantoms and more...",
+        href: RouteConfig.content.resources,
+      },
+			{
+        title: "Shop",
+        content: "Summon, shop and more...",
+        href: RouteConfig.content.resources,
+      },
+			{
+        title: "Menu",
+        content: "Guild, Battlefield, Demon Village and more...",
+        href: RouteConfig.content.resources,
       },
     ],
   },

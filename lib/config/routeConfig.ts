@@ -12,6 +12,14 @@ export const RouteConfig = {
 		beginners_guide: `${BASE_URL}/beginners-guide`,
 		community_guides: `${BASE_URL}/community-guides`
 	},
+
+	content:{
+		items: `${BASE_URL}/items`,
+		character:`${BASE_URL}/character`,
+		locations:`${BASE_URL}/locations`,
+		resources:`${BASE_URL}/resources`,
+	},
+
 	terms: "/terms",
 	policy: "/policy",
 
