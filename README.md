@@ -43,7 +43,7 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more informati
 
 ## Support
 
-This is not obligatory, the best support you can provide is shard this wiki and help me to create content
+This is not obligatory, the best support you can provide is share this wiki and help us to create content
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/gbraad)
 ---
