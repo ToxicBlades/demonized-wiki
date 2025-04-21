@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import {
 	Card,
 	CardContent,
@@ -7,10 +8,18 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 import {
 	ArrowUp,
 	BarChart3,
+	ChevronDown,
 	Crown,
 	Palette,
 	Shield,
@@ -35,121 +44,106 @@ import UpgradeTab from "./(components)/upgrade-tab";
 export default function CharacterTab() {
 	const [activeTab, setActiveTab] = useState("stat");
 
-	return (
-		<div className="container mx-auto p-4">
-			<Card>
-				<CardHeader>
-					<CardTitle className="font-bold text-2xl">Character</CardTitle>
-					<CardDescription className="">
-						Manage your character's abilities, appearance and companions
-					</CardDescription>
-				</CardHeader>
-				<CardContent>
-					<Tabs
-						value={activeTab}
-						onValueChange={setActiveTab}
-						className="w-full"
-					>
-						<div className="overflow-x-auto pb-2">
-							<TabsList className=" flex h-auto min-w-max flex-nowrap p-1">
-								<TabsTrigger value="stat" className="flex items-center gap-1">
-									<BarChart3 className="h-4 w-4" />
-									<span>Stat</span>
-								</TabsTrigger>
-								<TabsTrigger
-									value="upgrade"
-									className="flex items-center gap-1"
-								>
-									<ArrowUp className="h-4 w-4" />
-									<span>Upgrade</span>
-								</TabsTrigger>
-								<TabsTrigger
-									value="promote"
-									className="flex items-center gap-1"
-								>
-									<Crown className="h-4 w-4" />
-									<span>Promote</span>
-								</TabsTrigger>
-								<TabsTrigger
-									value="appearance"
-									className="flex items-center gap-1"
-								>
-									<Palette className="h-4 w-4" />
-									<span>Appearance</span>
-								</TabsTrigger>
-								<TabsTrigger
-									value="awakening"
-									className="flex items-center gap-1"
-								>
-									<Sparkles className="h-4 w-4" />
-									<span>Awakening</span>
-								</TabsTrigger>
-								<TabsTrigger
-									value="mystical-power"
-									className="flex items-center gap-1"
-								>
-									<Zap className="h-4 w-4" />
-									<span>Mystical Power</span>
-								</TabsTrigger>
-								<TabsTrigger
-									value="passive"
-									className="flex items-center gap-1"
-								>
-									<Shield className="h-4 w-4" />
-									<span>Passive</span>
-								</TabsTrigger>
-								<TabsTrigger
-									value="attribute"
-									className="flex items-center gap-1"
-								>
-									<Target className="h-4 w-4" />
-									<span>Attribute</span>
-								</TabsTrigger>
-								<TabsTrigger value="helper" className="flex items-center gap-1">
-									<UserPlus className="h-4 w-4" />
-									<span>Helper</span>
-								</TabsTrigger>
-								<TabsTrigger
-									value="mercenary"
-									className="flex items-center gap-1"
-								>
-									<Swords className="h-4 w-4" />
-									<span>Mercenary</span>
-								</TabsTrigger>
-							</TabsList>
-						</div>
+	// Define tabs with their icons and labels for reuse
+	const tabs = [
+		{ id: "stat", icon: BarChart3, label: "Stat" },
+		{ id: "upgrade", icon: ArrowUp, label: "Upgrade" },
+		{ id: "promote", icon: Crown, label: "Promote" },
+		{ id: "appearance", icon: Palette, label: "Appearance" },
+		{ id: "awakening", icon: Sparkles, label: "Awakening" },
+		{ id: "mystical-power", icon: Zap, label: "Mystical Power" },
+		{ id: "passive", icon: Shield, label: "Passive" },
+		{ id: "attribute", icon: Target, label: "Attribute" },
+		{ id: "helper", icon: UserPlus, label: "Helper" },
+		{ id: "mercenary", icon: Swords, label: "Mercenary" },
+	];
 
-						<TabsContent value="stat">
-							<StatTab />
-						</TabsContent>
-						<TabsContent value="upgrade">
-							<UpgradeTab />
-						</TabsContent>
-						<TabsContent value="promote">
-							<PromoteTab />
-						</TabsContent>
-						<TabsContent value="appearance">
-							<AppearanceTab />
-						</TabsContent>
-						<TabsContent value="awakening">
-							<AwakeningTab />
-						</TabsContent>
-						<TabsContent value="mystical-power">
-							<MysticalPowerTab />
-						</TabsContent>
-						<TabsContent value="passive">
-							<PassiveTab />
-						</TabsContent>
-						<TabsContent value="attribute">
-							<AttributeTab />
-						</TabsContent>
-						<TabsContent value="helper">
-							<HelperTab />
-						</TabsContent>
-						<TabsContent value="mercenary">
-							<MercenaryTab />
-						</TabsContent>
-					</Tabs>
+	// Find the active tab object
+	const activeTabObj = tabs.find((tab) => tab.id === activeTab) || tabs[0];
+
+	return (
+		<div className="container mx-auto p-2 sm:p-4">
+			<Card className="w-full">
+				<CardHeader className="p-4">
+					<div className="flex items-center justify-between">
+						<div>
+							<CardTitle className="font-bold text-xl sm:text-2xl">
+								Character
+							</CardTitle>
+							<CardDescription className="mt-1 text-sm">
+								Manage your character's abilities, appearance and companions
+							</CardDescription>
+						</div>
+					</div>
+				</CardHeader>
+				<CardContent className="p-3 sm:p-6">
+					{/* Mobile Dropdown Navigation */}
+					<div className="mb-4 block md:hidden">
+						<DropdownMenu>
+							<DropdownMenuTrigger asChild>
+								<Button variant="outline" className="w-full justify-between">
+									<div className="flex items-center gap-2">
+										<activeTabObj.icon className="h-4 w-4" />
+										<span>{activeTabObj.label}</span>
+									</div>
+									<ChevronDown className="h-4 w-4 opacity-50" />
+								</Button>
+							</DropdownMenuTrigger>
+							<DropdownMenuContent className="w-full min-w-[200px]">
+								{tabs.map((tab) => (
+									<DropdownMenuItem
+										key={tab.id}
+										className={cn(
+											"flex cursor-pointer items-center gap-2",
+											activeTab === tab.id && "bg-accent",
+										)}
+										onClick={() => setActiveTab(tab.id)}
+									>
+										<tab.icon className="h-4 w-4" />
+										<span>{tab.label}</span>
+									</DropdownMenuItem>
+								))}
+							</DropdownMenuContent>
+						</DropdownMenu>
+					</div>
+
+					{/* Tablet/Desktop Tab Navigation */}
+					<div className="hidden md:block">
+						<Tabs
+							value={activeTab}
+							onValueChange={setActiveTab}
+							className="w-full"
+						>
+							<TabsList className="grid h-auto grid-cols-5 gap-1 lg:grid-cols-10">
+								{tabs.map((tab) => (
+									<TabsTrigger
+										key={tab.id}
+										value={tab.id}
+										className="flex h-auto cursor-pointer flex-col items-center justify-center px-1 py-2 text-center"
+									>
+										<tab.icon className="mb-1 h-4 w-4" />
+										<span className="font-medium text-xs">
+											{tab.id === "mystical-power" ? "Mystical" : tab.label}
+										</span>
+									</TabsTrigger>
+								))}
+							</TabsList>
+						</Tabs>
+					</div>
+
+					{/* Tab Content */}
+					<div className="mt-4">
+						{activeTab === "stat" && <StatTab />}
+						{activeTab === "upgrade" && <UpgradeTab />}
+						{activeTab === "promote" && <PromoteTab />}
+						{activeTab === "appearance" && <AppearanceTab />}
+						{activeTab === "awakening" && <AwakeningTab />}
+						{activeTab === "mystical-power" && <MysticalPowerTab />}
+						{activeTab === "passive" && <PassiveTab />}
+						{activeTab === "attribute" && <AttributeTab />}
+						{activeTab === "helper" && <HelperTab />}
+						{activeTab === "mercenary" && <MercenaryTab />}
+					</div>
 				</CardContent>
 			</Card>
 		</div>

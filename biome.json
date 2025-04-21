@@ -3,7 +3,7 @@
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
-		"ignore": ["dist/", "node_modules/"],
+		"ignore": ["dist/", "node_modules/", ".next/"],
 		"attributePosition": "auto",
 		"indentStyle": "tab",
 		"indentWidth": 2,
@@ -12,7 +12,7 @@
 	},
 	"organizeImports": {
 		"enabled": true,
-		"ignore": ["dist/", "node_modules/"]
+		"ignore": ["dist/", "node_modules/", ".next/"]
 	},
 	"linter": {
 		"enabled": true,
@@ -55,6 +55,6 @@
 				"noBannedTypes": "off"
 			}
 		},
-		"ignore": ["dist/", "node_modules/"]
+		"ignore": ["dist/", "node_modules/", ".next/"]
 	}
 }

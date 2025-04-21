@@ -25,6 +25,18 @@ export const RouteConfig = {
 		resources: `${BASE_URL}/game-tabs/resources`,
 	},
 
+	data_base: {
+		character: {
+			experience: `${BASE_URL}/data-base/character/experience`,
+		},
+		stats: {
+			str: `${BASE_URL}/data-base/stats/str`,
+			dex: `${BASE_URL}/data-base/stats/dex`,
+			agi: `${BASE_URL}/data-base/stats/agi`,
+			luk: `${BASE_URL}/data-base/stats/luk`,
+		},
+	},
+
 	terms: "/terms",
 	policy: "/policy",
 };

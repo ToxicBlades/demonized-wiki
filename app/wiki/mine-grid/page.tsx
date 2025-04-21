@@ -219,7 +219,7 @@ export default function TileGridPage() {
 				</div>
 
 				<div className="mt-6 hidden justify-center md:flex">
-					<Button onClick={resetGrid} className="gap-2 cursor-pointer">
+					<Button onClick={resetGrid} className="cursor-pointer gap-2">
 						<RotateCw className="h-4 w-4" />
 						Reset Grid
 					</Button>
