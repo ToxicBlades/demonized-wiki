@@ -115,7 +115,21 @@ export default function TileGridPage() {
 					column.
 				</p>
 
+				<p className="mb-6 text-center text-muted-foreground">
+					This grid helps you mine in the most efficient way. Since any unopened
+					tile might be a bomb, you should always choose the tile whose
+					explosion would clear the greatest number of currently available
+					tiles.
+				</p>
+
 				<div className="flex w-full flex-col items-start justify-center gap-6 md:flex-row">
+					<div className="mb-4 flex w-full justify-center md:hidden">
+						<Button onClick={resetGrid} className="gap-2">
+							<RotateCw className="h-4 w-4" />
+							Reset Grid
+						</Button>
+					</div>
+
 					<div className="mx-auto grid w-full max-w-md grid-cols-5 gap-1 rounded-lg bg-muted p-4 shadow-md">
 						{squares.map((isRed, idx) => (
 							<div
@@ -204,8 +218,8 @@ export default function TileGridPage() {
 					</Card>
 				</div>
 
-				<div className="mt-6 flex justify-center">
-					<Button onClick={resetGrid} className="gap-2">
+				<div className="mt-6 hidden justify-center md:flex">
+					<Button onClick={resetGrid} className="gap-2 cursor-pointer">
 						<RotateCw className="h-4 w-4" />
 						Reset Grid
 					</Button>
