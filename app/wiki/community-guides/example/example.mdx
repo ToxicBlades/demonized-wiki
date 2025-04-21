@@ -1,0 +1,109 @@
+---
+Title: "Example MDX User Guide" \
+Creator: "Toxic Blade" \
+Date: "2025-04-21" \
+Game version: "1.0.0" \
+Description: "A sample MDX guide showcasing metadata, links, images, lists, and tables."
+---
+
+import Image from 'next/image';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+# 📑 Table of Contents
+
+- Introduction
+- Links Section
+- Images Section
+- Lists Section
+- Tables Section
+
+---
+
+## Introduction
+
+Welcome to this example MDX user guide. This document demonstrates how to structure an MDX file with frontmatter metadata, section linking, external links, images using `next/image`, lists, and tables.
+
+---
+
+## Links Section
+
+Here's an example of inline and reference-style links:
+
+- Inline link to [OpenAI](https://openai.com)
+- Reference link to [MDX Documentation][mdx-doc]
+
+[mdx-doc]: https://mdxjs.com/ "MDX Official Docs"
+
+---
+
+## Images Section
+
+Use the Next.js `Image` component for optimized images:
+
+<figure>
+  <Image
+    src="/placeholder.jpeg"
+    alt="Example Image"
+    width={800}
+    height={450}
+  />
+  <figcaption>Figure 1: A sample image using <code>next/image</code>.</figcaption>
+</figure>
+
+---
+
+## Lists Section
+
+### Unordered List
+
+- Item A
+- Item B
+  - Sub-item B1
+  - Sub-item B2
+
+### Ordered List
+
+1. First step
+2. Second step
+   1. Sub-step 2.1
+   2. Sub-step 2.2
+
+---
+
+## Tables Section
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Content</TableHead>
+      <TableHead>Syntax Example</TableHead>
+      <TableHead>Notes</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Frontmatter</TableCell>
+      <TableCell>`---\ntitle: ...\n---`</TableCell>
+      <TableCell>YAML block at the top</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Inline Links</TableCell>
+      <TableCell>`[Link](https://...)`</TableCell>
+      <TableCell>Opens in new tab</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Next Image</TableCell>
+      <TableCell>`<Image src="/placeholder.jpeg" />`</TableCell>
+      <TableCell>Optimized, responsive images</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Markdown Table</TableCell>
+      <TableCell>`| A | B | C |`</TableCell>
+      <TableCell>Pipes separate columns</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+---
+
+*End of guide.*
