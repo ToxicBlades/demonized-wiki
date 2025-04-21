@@ -45,7 +45,7 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more informati
 
 This is not obligatory, the best support you can provide is share this wiki and help us to create content
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/gbraad)
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)]([https://www.buymeacoffee.com/gbraad](https://buymeacoffee.com/toxicblade?new=1))
 ---
 
 > Built with ❤️ by fan of _Demonized_ for the community. Feel free to reach out with suggestions or feedback!
