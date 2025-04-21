@@ -40,7 +40,7 @@ export default function Home() {
 					</CardContent>
 					<CardFooter>
 						<Button variant="outline" asChild className="w-full">
-							<Link href={RouteConfig.guides.community_guides}>
+							<Link href={RouteConfig.guides.community_guides.base}>
 								Browse Guides
 							</Link>
 						</Button>
