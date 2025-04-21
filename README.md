@@ -40,6 +40,12 @@ Please follow the existing format and structure for consistency.
 
 Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
 
+
+## Support
+
+This is not obligatory, the best support you can provide is shard this wiki and help me to create content
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/gbraad)
 ---
 
 > Built with ❤️ by fan of _Demonized_ for the community. Feel free to reach out with suggestions or feedback!

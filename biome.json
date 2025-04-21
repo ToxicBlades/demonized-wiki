@@ -33,11 +33,11 @@
 				"useSemanticElements": "off",
 				"useFocusableInteractive": "off"
 			},
-			"security":{
+			"security": {
 				"noDangerouslySetInnerHtml": "warn"
 			},
 			"recommended": true,
-			"correctness":{
+			"correctness": {
 				"useExhaustiveDependencies": "warn"
 			},
 			"suspicious": {
