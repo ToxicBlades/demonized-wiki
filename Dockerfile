@@ -16,18 +16,8 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Add the environment variables for the build stage
-ARG DATABASE_URL
-ARG NEXT_PUBLIC_BACKEND_URL
-ARG NEXT_PUBLIC_BASE_URL
-
-
-ENV NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
-ENV DATABASE_URL=${DATABASE_URL}
-ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
 
 # Use the environment variable during the build
-RUN npx prisma generate
 RUN yarn build
 
 # 3. Production image, copy all the files and run next
@@ -36,9 +26,6 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Add the environment variables for runtime
-ENV DATABASE_URL=${DATABASE_URL}
-ENV NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
-ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
 RUN apk add --no-cache chromium
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 RUN addgroup -g 1001 -S nodejs
