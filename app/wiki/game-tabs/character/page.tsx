@@ -30,16 +30,20 @@ import {
 	Zap,
 } from "lucide-react";
 import { useState } from "react";
-import AppearanceTab from "./(components)/appearance-tab";
-import AttributeTab from "./(components)/attribute-tab";
-import AwakeningTab from "./(components)/awakening-tab";
-import HelperTab from "./(components)/helper-tab";
-import MercenaryTab from "./(components)/mercenary-tab";
-import MysticalPowerTab from "./(components)/mystical-power-tab";
-import PassiveTab from "./(components)/passive-tab";
 import PromoteTab from "./(components)/promote-tab";
 import StatTab from "./(components)/stat-tab";
 import UpgradeTab from "./(components)/upgrade-tab";
+
+// Placeholder components for other tabs
+const AppearanceTab = () => <div className="p-4">Appearance Tab Content</div>;
+const AwakeningTab = () => <div className="p-4">Awakening Tab Content</div>;
+const MysticalPowerTab = () => (
+	<div className="p-4">Mystical Power Tab Content</div>
+);
+const PassiveTab = () => <div className="p-4">Passive Tab Content</div>;
+const AttributeTab = () => <div className="p-4">Attribute Tab Content</div>;
+const HelperTab = () => <div className="p-4">Helper Tab Content</div>;
+const MercenaryTab = () => <div className="p-4">Mercenary Tab Content</div>;
 
 export default function CharacterTab() {
 	const [activeTab, setActiveTab] = useState("stat");
@@ -62,7 +66,7 @@ export default function CharacterTab() {
 	const activeTabObj = tabs.find((tab) => tab.id === activeTab) || tabs[0];
 
 	return (
-		<div className="container mx-auto p-2 sm:p-4">
+		<div className="container mx-auto px-2 py-4 sm:px-4">
 			<Card className="w-full">
 				<CardHeader className="p-4">
 					<div className="flex items-center justify-between">
@@ -89,12 +93,12 @@ export default function CharacterTab() {
 									<ChevronDown className="h-4 w-4 opacity-50" />
 								</Button>
 							</DropdownMenuTrigger>
-							<DropdownMenuContent className="w-full min-w-[200px]">
+							<DropdownMenuContent className="w-[calc(100vw-2rem)] max-w-[350px]">
 								{tabs.map((tab) => (
 									<DropdownMenuItem
 										key={tab.id}
 										className={cn(
-											"flex cursor-pointer items-center gap-2",
+											"flex cursor-pointer items-center gap-2 py-2",
 											activeTab === tab.id && "bg-accent",
 										)}
 										onClick={() => setActiveTab(tab.id)}
