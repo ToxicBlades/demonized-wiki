@@ -43,7 +43,7 @@ const Navlinks = [
 			{
 				title: "Community guides",
 				content: "Community guides made by other players",
-				href: RouteConfig.guides.community_guides,
+				href: RouteConfig.guides.community_guides.base,
 			},
 		],
 	},

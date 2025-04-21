@@ -10,7 +10,10 @@ export const RouteConfig = {
 
 	guides: {
 		beginners_guide: `${BASE_URL}/beginners-guide`,
-		community_guides: `${BASE_URL}/community-guides`,
+		community_guides: {
+			base:`${BASE_URL}/community-guides`,
+			example: `${BASE_URL}/community-guides/example`
+		},
 	},
 
 	content: {
