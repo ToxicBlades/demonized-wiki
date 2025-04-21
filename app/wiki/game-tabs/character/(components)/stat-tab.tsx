@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RouteConfig } from "@/lib/config/routeConfig";
-import { Activity, ArrowUpCircle, Dumbbell, Sparkles, Zap } from "lucide-react";
+import { Activity, BarChart3, Dumbbell, Sparkles, Zap } from "lucide-react";
 import Link from "next/link";
 
 export default function StatTab() {
@@ -23,7 +23,7 @@ export default function StatTab() {
 		<Card className="w-full shadow-md">
 			<CardHeader>
 				<CardTitle className="flex items-center gap-2 text-2xl">
-					<ArrowUpCircle className="h-6 w-6 text-primary" />
+					<BarChart3 className="h-6 w-6 text-primary" />
 					Character Stats
 				</CardTitle>
 				<CardDescription>
