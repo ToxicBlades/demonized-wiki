@@ -2,7 +2,7 @@
 
 import { RouteConfig } from "@/lib/config/routeConfig";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -84,6 +84,14 @@ const Navlinks = [
 	},
 ];
 
+// Standard links without dropdowns
+const StandardLinks = [
+	{
+		label: "Mine Grid",
+		href: RouteConfig.mine_grid,
+	},
+];
+
 export default function NavigationLinks() {
 	const pathname = usePathname();
 	const [isOpen, setIsOpen] = useState(false);
@@ -123,6 +131,23 @@ export default function NavigationLinks() {
 								))}
 							</ul>
 						</NavigationMenuContent>
+					</NavigationMenuItem>
+				))}
+
+				{/* Standard links without dropdowns */}
+				{StandardLinks.map((link, index) => (
+					<NavigationMenuItem key={`standard-${index}`}>
+						<Link
+							href={link.href}
+							className={cn(
+								"group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 font-medium text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
+								{
+									"bg-accent/50 text-accent-foreground": pathname === link.href,
+								},
+							)}
+						>
+							{link.label}
+						</Link>
 					</NavigationMenuItem>
 				))}
 			</NavigationMenuList>
@@ -178,6 +203,28 @@ export default function NavigationLinks() {
 								</AccordionItem>
 							))}
 						</Accordion>
+
+						{/* Standard links in mobile view */}
+						<div className="flex flex-col space-y-4 px-1 pt-2">
+							<h3 className="font-medium text-muted-foreground text-sm">
+								Links
+							</h3>
+							<div className="flex flex-col space-y-2">
+								{StandardLinks.map((link, index) => (
+									<Link
+										key={`mobile-standard-${index}`}
+										href={link.href}
+										className={cn("py-2 text-sm transition-colors", {
+											"font-medium text-primary": pathname === link.href,
+											"text-muted-foreground": pathname !== link.href,
+										})}
+										onClick={() => setIsOpen(false)}
+									>
+										{link.label}
+									</Link>
+								))}
+							</div>
+						</div>
 					</div>
 				</SheetContent>
 			</Sheet>
