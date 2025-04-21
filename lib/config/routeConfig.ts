@@ -34,6 +34,11 @@ export const RouteConfig = {
 			dex: `${BASE_URL}/data-base/stats/dex`,
 			agi: `${BASE_URL}/data-base/stats/agi`,
 			luk: `${BASE_URL}/data-base/stats/luk`,
+			aspd: `${BASE_URL}/data-base/stats/aspd`,
+			mspd: `${BASE_URL}/data-base/stats/mspd`,
+		},
+		resources: {
+			monster_meat: `${BASE_URL}/data-base/resources/monster-meat`,
 		},
 	},
 
