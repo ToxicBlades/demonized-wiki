@@ -30,12 +30,12 @@ import {
 	Zap,
 } from "lucide-react";
 import { useState } from "react";
+import AppearanceTab from "./(components)/appearance-tab";
 import PromoteTab from "./(components)/promote-tab";
 import StatTab from "./(components)/stat-tab";
 import UpgradeTab from "./(components)/upgrade-tab";
 
 // Placeholder components for other tabs
-const AppearanceTab = () => <div className="p-4">Appearance Tab Content</div>;
 const AwakeningTab = () => <div className="p-4">Awakening Tab Content</div>;
 const MysticalPowerTab = () => (
 	<div className="p-4">Mystical Power Tab Content</div>
