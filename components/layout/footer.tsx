@@ -41,6 +41,12 @@ export function Footer() {
 							Contribute
 						</Link>
 						<Link
+							href={RouteConfig.contributors}
+							className="font-medium text-sm underline-offset-4 hover:underline"
+						>
+							Contributors
+						</Link>
+						<Link
 							href={RouteConfig.discord}
 							target="_blank"
 							className="font-medium text-sm underline-offset-4 hover:underline"

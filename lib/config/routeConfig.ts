@@ -7,7 +7,7 @@ export const RouteConfig = {
 
 	discord: "https://discord.gg/demonizedidle",
 	contribute: "https://github.com/ToxicBlades/demonized-wiki",
-
+	contributors: `${BASE_URL}/contributors`,
 	mine_grid: `${BASE_URL}/mine-grid`,
 
 	guides: {
