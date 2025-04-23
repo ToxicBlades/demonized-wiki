@@ -29,7 +29,7 @@ import {
 	UserPlus,
 	Zap,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppearanceTab from "./(components)/appearance-tab";
 import PromoteTab from "./(components)/promote-tab";
 import StatTab from "./(components)/stat-tab";
@@ -46,8 +46,6 @@ const HelperTab = () => <div className="p-4">Helper Tab Content</div>;
 const MercenaryTab = () => <div className="p-4">Mercenary Tab Content</div>;
 
 export default function CharacterTab() {
-	const [activeTab, setActiveTab] = useState("stat");
-
 	// Define tabs with their icons and labels for reuse
 	const tabs = [
 		{ id: "stat", icon: BarChart3, label: "Stat" },
@@ -61,6 +59,39 @@ export default function CharacterTab() {
 		{ id: "helper", icon: UserPlus, label: "Helper" },
 		{ id: "mercenary", icon: Swords, label: "Mercenary" },
 	];
+
+	const [activeTab, setActiveTab] = useState("stat");
+
+	// Function to get tab ID from URL hash
+	const getTabFromHash = () => {
+		if (typeof window !== "undefined") {
+			const hash = window.location.hash.replace("#", "");
+			return tabs.some((tab) => tab.id === hash) ? hash : "stat";
+		}
+		return "stat";
+	};
+
+	// Update URL hash when tab changes
+	const updateTabAndHash = (tabId: string) => {
+		setActiveTab(tabId);
+		if (typeof window !== "undefined") {
+			window.history.pushState(null, "", `#${tabId}`);
+		}
+	};
+
+	// Initialize tab from URL hash on component mount
+	useEffect(() => {
+		const tabFromHash = getTabFromHash();
+		setActiveTab(tabFromHash);
+
+		// Handle browser back/forward navigation
+		const handlePopState = () => {
+			setActiveTab(getTabFromHash());
+		};
+
+		window.addEventListener("popstate", handlePopState);
+		return () => window.removeEventListener("popstate", handlePopState);
+	}, []);
 
 	// Find the active tab object
 	const activeTabObj = tabs.find((tab) => tab.id === activeTab) || tabs[0];
@@ -101,7 +132,7 @@ export default function CharacterTab() {
 											"flex cursor-pointer items-center gap-2 py-2",
 											activeTab === tab.id && "bg-accent",
 										)}
-										onClick={() => setActiveTab(tab.id)}
+										onClick={() => updateTabAndHash(tab.id)}
 									>
 										<tab.icon className="h-4 w-4" />
 										<span>{tab.label}</span>
@@ -115,7 +146,7 @@ export default function CharacterTab() {
 					<div className="hidden md:block">
 						<Tabs
 							value={activeTab}
-							onValueChange={setActiveTab}
+							onValueChange={updateTabAndHash}
 							className="w-full"
 						>
 							<TabsList className="grid h-auto grid-cols-5 gap-1 lg:grid-cols-10">
