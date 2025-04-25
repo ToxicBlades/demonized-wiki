@@ -19,7 +19,7 @@ export function Footer() {
 				<div className="flex flex-col items-center gap-6 md:flex-row md:gap-8">
 					<nav className="flex flex-wrap justify-center gap-5 md:gap-6">
 						<Link
-							href="mailto:toxicblade.work@gmail.com"
+							href={RouteConfig.contacts}
 							className="font-medium text-sm underline-offset-4 hover:underline"
 						>
 							{t.contact}
@@ -37,24 +37,10 @@ export function Footer() {
 							{t.terms}
 						</Link>
 						<Link
-							href={RouteConfig.contribute}
-							target="_blank"
-							className="font-medium text-sm underline-offset-4 hover:underline"
-						>
-							{t.contribute}
-						</Link>
-						<Link
 							href={RouteConfig.contributors}
 							className="font-medium text-sm underline-offset-4 hover:underline"
 						>
 							{t.contributors}
-						</Link>
-						<Link
-							href={RouteConfig.discord}
-							target="_blank"
-							className="font-medium text-sm underline-offset-4 hover:underline"
-						>
-							{t.discord}
 						</Link>
 					</nav>
 					<div className="flex items-center gap-5 md:gap-6">

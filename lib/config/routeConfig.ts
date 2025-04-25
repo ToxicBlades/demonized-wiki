@@ -59,5 +59,6 @@ export const RouteConfig = {
 	},
 
 	terms: "/terms",
-	policy: "/policy",
+	policy: "/privacy",
+	contacts: "/contacts",
 };

@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/footer";
 import NavigationLinks from "@/components/layout/navbar";
+import { LanguageSwitcher } from "@/components/localeSwitcher";
 import { ThemeSwitcher } from "@/components/themeSwitcher";
 import { RouteConfig } from "@/lib/config/routeConfig";
 import { getTranslations } from "next-intl/server";
@@ -31,6 +32,7 @@ export default async function RootLayout({
 
 					<div className="flex items-center gap-4">
 						<ThemeSwitcher />
+						<LanguageSwitcher/>
 					</div>
 				</div>
 
