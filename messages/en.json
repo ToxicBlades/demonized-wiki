@@ -95,5 +95,16 @@
 		"high_scores": "🥇 High Scores:",
 		"score_number": "Score",
 		"no_scores": "(none yet)"
+	},
+	"Guides": {
+		"page_title": "Community Guides",
+		"page_description": "Resources created by the community, for the community. Learn, share, and grow together.",
+		"add_guide_button": "Add your guide",
+		"example_guide_section": "Example Guide",
+		"read_guide_button": "Read Guide",
+		"more_guides_section": "More Community Guides",
+		"view_guide_button": "View Guide",
+		"by_author": "By",
+		"date_separator": "•"
 	}
 }

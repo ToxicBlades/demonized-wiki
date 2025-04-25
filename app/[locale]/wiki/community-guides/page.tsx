@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowRight, BookOpen, PlusCircle, Users } from "lucide-react";
+import { useMessages } from "next-intl";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -13,6 +16,8 @@ import {
 import { RouteConfig } from "@/lib/config/routeConfig";
 
 export default function GuidesPage() {
+	const t = useMessages().Guides;
+
 	const exampleGuide = {
 		title: "Example mdx Guide",
 		description: "Look how mdx file renders content",
@@ -54,15 +59,14 @@ export default function GuidesPage() {
 		<main className="container mx-auto px-4 py-12">
 			<div className="mb-12 text-center">
 				<h1 className="mb-4 font-bold text-4xl tracking-tight">
-					Community Guides
+					{t.page_title}
 				</h1>
 				<p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-					Resources created by the community, for the community. Learn, share,
-					and grow together.
+					{t.page_description}
 				</p>
 				<Button className="mt-6">
 					<PlusCircle className="h-4 w-4" />
-					Add your guide
+					{t.add_guide_button}
 				</Button>
 			</div>
 
@@ -70,7 +74,7 @@ export default function GuidesPage() {
 			<section className="mb-16">
 				<h2 className="mb-6 flex items-center gap-2 font-semibold text-2xl">
 					<BookOpen className="h-6 w-6" />
-					Example Guide
+					{t.example_guide_section}
 				</h2>
 				<Card className="overflow-hidden">
 					<div className="grid gap-6 md:grid-cols-2">
@@ -85,7 +89,8 @@ export default function GuidesPage() {
 							<CardHeader className="p-0">
 								<CardTitle className="text-2xl">{exampleGuide.title}</CardTitle>
 								<CardDescription className="text-sm">
-									By {exampleGuide.author} • {exampleGuide.date}
+									{t.by_author} {exampleGuide.author} {t.date_separator}{" "}
+									{exampleGuide.date}
 								</CardDescription>
 							</CardHeader>
 							<CardContent className="mt-4 p-0">
@@ -97,7 +102,7 @@ export default function GuidesPage() {
 										href={exampleGuide.path}
 										className="flex items-center gap-2"
 									>
-										Read Guide
+										{t.read_guide_button}
 										<ArrowRight className="h-4 w-4" />
 									</Link>
 								</Button>
@@ -111,7 +116,7 @@ export default function GuidesPage() {
 			<section>
 				<h2 className="mb-6 flex items-center gap-2 font-semibold text-2xl">
 					<Users className="h-6 w-6" />
-					More Community Guides
+					{t.more_guides_section}
 				</h2>
 				<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{otherGuides.map((guide, index) => (
@@ -126,7 +131,7 @@ export default function GuidesPage() {
 							<CardHeader>
 								<CardTitle>{guide.title}</CardTitle>
 								<CardDescription className="text-sm">
-									By {guide.author} • {guide.date}
+									{t.by_author} {guide.author} {t.date_separator} {guide.date}
 								</CardDescription>
 							</CardHeader>
 							<CardContent>
@@ -138,7 +143,7 @@ export default function GuidesPage() {
 										href={guide.path}
 										className="flex items-center justify-center gap-2"
 									>
-										View Guide
+										{t.view_guide_button}
 										<ArrowRight className="h-4 w-4" />
 									</Link>
 								</Button>
