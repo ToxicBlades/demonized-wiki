@@ -106,5 +106,17 @@
 		"view_guide_button": "View Guide",
 		"by_author": "By",
 		"date_separator": "•"
-	}
+	},
+  "Contributors": {
+    "page_title": "Our Contributors",
+    "page_description": "We'd like to thank all the amazing people who contributed to this project.",
+    "contributor_label": "Contributor",
+    "read_more": "Read more",
+    "contribution_label": "Contribution",
+    "Contributions":{
+      "IUDEXG":"Provided not only a best algorithm but also a source code with visualisation for most efficient mining",
+      "Killerrr":"Provided maxed mystical power screenshots",
+      "gEiStToG":"Provided all maxed awakening screenshots"
+    }
+  }
 }
