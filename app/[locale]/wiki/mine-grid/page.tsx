@@ -6,12 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { RotateCw } from "lucide-react";
+import { useMessages } from "next-intl";
 import { useEffect, useState } from "react";
+
 const rows = 6;
 const cols = 5;
 const totalSquares = rows * cols;
 
 export default function TileGridPage() {
+	const t = useMessages().MineGrid;
 	const [squares, setSquares] = useState<boolean[]>(
 		Array(totalSquares).fill(false),
 	);
@@ -106,27 +109,21 @@ export default function TileGridPage() {
 		<div className="flex min-h-screen flex-col items-center bg-background p-2">
 			<div className="w-full max-w-4xl">
 				<div className="mb-4 text-center">
-					<TypographyH1>Mine Grid</TypographyH1>
-					<TypographyMuted>Created by [S10] IUDEXG</TypographyMuted>
+					<TypographyH1>{t.title}</TypographyH1>
+					<TypographyMuted>{t.created_by}</TypographyMuted>
 				</div>
 
-				<p className="mb-4 text-center">
-					🔴 Tap a tile to make it red. Tap red again to explode row &amp;
-					column.
-				</p>
+				<p className="mb-4 text-center">{t.instructions}</p>
 
 				<p className="mb-6 text-center text-muted-foreground">
-					This grid helps you mine in the most efficient way. Since any unopened
-					tile might be a bomb, you should always choose the tile whose
-					explosion would clear the greatest number of currently available
-					tiles.
+					{t.description}
 				</p>
 
 				<div className="flex w-full flex-col items-start justify-center gap-6 md:flex-row">
 					<div className="mb-4 flex w-full justify-center md:hidden">
 						<Button onClick={resetGrid} className="gap-2">
 							<RotateCw className="h-4 w-4" />
-							Reset Grid
+							{t.reset_button}
 						</Button>
 					</div>
 
@@ -155,7 +152,7 @@ export default function TileGridPage() {
 									variant="outline"
 									className="mb-1 w-full justify-start bg-yellow-500/10 text-yellow-500"
 								>
-									💥 Live Score
+									{t.live_score}
 								</Badge>
 								<p className="font-bold text-xl">{liveScore}</p>
 							</div>
@@ -165,7 +162,7 @@ export default function TileGridPage() {
 									variant="outline"
 									className="mb-1 w-full justify-start bg-green-500/10 text-green-500"
 								>
-									🏆 Max Score Achieved
+									{t.max_score}
 								</Badge>
 								<p className="font-semibold text-lg">{cumulativeLiveScore}</p>
 							</div>
@@ -175,7 +172,7 @@ export default function TileGridPage() {
 									variant="outline"
 									className="mb-1 w-full justify-start bg-primary/10 text-primary"
 								>
-									Remaining Tiles
+									{t.remaining_tiles}
 								</Badge>
 								<p>{remainingCount}</p>
 							</div>
@@ -183,13 +180,15 @@ export default function TileGridPage() {
 							<Separator />
 
 							<div>
-								<h3 className="mb-2 font-medium">Tiles by impact score:</h3>
+								<h3 className="mb-2 font-medium">{t.tiles_by_impact}</h3>
 								<div className="space-y-1 text-sm">
 									{Object.entries(breakdownMap)
 										.sort((a, b) => Number(b[0]) - Number(a[0]))
 										.map(([score, count]) => (
 											<div key={score} className="flex justify-between">
-												<span>Score {score}:</span>
+												<span>
+													{t.score_label} {score}:
+												</span>
 												<span>{count}</span>
 											</div>
 										))}
@@ -199,19 +198,21 @@ export default function TileGridPage() {
 							<Separator />
 
 							<div>
-								<h3 className="mb-2 font-medium">🥇 High Scores:</h3>
+								<h3 className="mb-2 font-medium">{t.high_scores}</h3>
 								{topScores.length > 0 ? (
 									<div className="space-y-1">
 										{topScores.map((score, i) => (
 											<div key={i} className="flex items-center gap-2">
 												<span>{medals[i]}</span>
-												<span>Score {i + 1}:</span>
+												<span>
+													{t.score_number} {i + 1}:
+												</span>
 												<span className="font-medium">{score}</span>
 											</div>
 										))}
 									</div>
 								) : (
-									<p className="text-muted-foreground text-sm">(none yet)</p>
+									<p className="text-muted-foreground text-sm">{t.no_scores}</p>
 								)}
 							</div>
 						</CardContent>
@@ -221,7 +222,7 @@ export default function TileGridPage() {
 				<div className="mt-6 hidden justify-center md:flex">
 					<Button onClick={resetGrid} className="cursor-pointer gap-2">
 						<RotateCw className="h-4 w-4" />
-						Reset Grid
+						{t.reset_button}
 					</Button>
 				</div>
 			</div>
