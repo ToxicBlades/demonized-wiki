@@ -32,7 +32,7 @@ export default async function RootLayout({
 
 					<div className="flex items-center gap-4">
 						<ThemeSwitcher />
-						<LanguageSwitcher/>
+						<LanguageSwitcher />
 					</div>
 				</div>
 
