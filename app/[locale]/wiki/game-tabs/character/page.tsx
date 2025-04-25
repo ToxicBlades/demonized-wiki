@@ -31,10 +31,10 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import AppearanceTab from "./(components)/appearance-tab";
+import AwakeningTab from "./(components)/awakening-tab";
 import PromoteTab from "./(components)/promote-tab";
 import StatTab from "./(components)/stat-tab";
 import UpgradeTab from "./(components)/upgrade-tab";
-import AwakeningTab from "./(components)/awakening-tab";
 
 // Placeholder components for other tabs
 const MysticalPowerTab = () => (

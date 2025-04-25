@@ -11,7 +11,7 @@ export default async function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const t = await getTranslations("Layout")
+	const t = await getTranslations("Layout");
 	return (
 		<div className="flex">
 			<div className="flex flex-grow flex-col">
@@ -21,9 +21,7 @@ export default async function RootLayout({
 							<NavigationLinks />
 						</div>
 						<Link href={RouteConfig.home} className="font-semibold">
-							<span className="hidden md:inline">
-								{t("logo_text")}
-							</span>
+							<span className="hidden md:inline">{t("logo_text")}</span>
 							<span className="md:hidden">{t("logo_text")}</span>
 						</Link>
 						<div className="hidden md:block">

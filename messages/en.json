@@ -1,29 +1,99 @@
 {
-  "Stats":{
-    "dex": "DEX",
-    "str": "STR",
-    "agi": "AGI",
-    "luk": "LUK",
-
-    "atk":"ATK",
-    "min_atk":"Min ATK",
-    "max_atk":"Max ATK",
-
-    "water_atk":"Water ATK",
-    "earth_atk":"Earth ATK",
-    "fire_atk":"Fire ATK",
-    "wind_atk":"Wind ATK",
-
-    "accuracy":"Accuracy",
-    "evasion":"Evasion",
-    "life": "Life",
-
-    "trait_atack" : "Trait ATK",
-    "trait_coefficient":"Trait Coeffiecient",
-    "skill_dmg":"Skill DMG",
-    "penetration_dmg":"Penegration DMG"
-  },
-  "Layout":{
-    "logo_text":"Unofficial Demonized Wiki"
-  }
+	"Common": {
+		"loading": "Loading",
+		"content_prepare": "Please wait while we prepare your content"
+	},
+	"Stats": {
+		"dex": "DEX",
+		"str": "STR",
+		"agi": "AGI",
+		"luk": "LUK",
+		"atk": "ATK",
+		"min_atk": "Min ATK",
+		"max_atk": "Max ATK",
+		"water_atk": "Water ATK",
+		"earth_atk": "Earth ATK",
+		"fire_atk": "Fire ATK",
+		"wind_atk": "Wind ATK",
+		"accuracy": "Accuracy",
+		"evasion": "Evasion",
+		"life": "Life",
+		"trait_atack": "Trait ATK",
+		"trait_coefficient": "Trait Coefficient",
+		"skill_dmg": "Skill DMG",
+		"penetration_dmg": "Penetration DMG"
+	},
+	"Layout": {
+		"logo_text": "Unofficial Demonized Wiki",
+		"Navigation_links": {
+			"user_guides": "User guides",
+			"beginners_guide": "Beginners guide",
+			"beginners_guide_desc": "Learn the basics of the game and how to progress",
+			"community_guides": "Community guides",
+			"community_guides_desc": "Community guides made by other players",
+			"game_tabs": "Game tabs",
+			"character": "Character",
+			"character_desc": "Stats, promotion, helper and more...",
+			"item": "Item",
+			"item_desc": "Gear, materials crafting and more...",
+			"skill": "Skill",
+			"skill_desc": "Skill stones, skill shop and more...",
+			"minion": "Minion",
+			"minion_desc": "Minions, monsters, phantoms and more...",
+			"shop": "Shop",
+			"shop_desc": "Summon, shop and more...",
+			"menu": "Menu",
+			"menu_desc": "Guild, Battlefield, Demon Village and more...",
+			"mine_grid": "Mine Grid",
+			"links": "Links"
+		},
+		"Footer": {
+			"disclaimer_part1": "This is an",
+			"unofficial": "unofficial",
+			"disclaimer_part2": "wiki. All data is collected and maintained by the player community.",
+			"contact": "Contact",
+			"privacy": "Privacy",
+			"terms": "Terms",
+			"contribute": "Contribute",
+			"contributors": "Contributors",
+			"discord": "Discord",
+			"github": "GitHub"
+		},
+		"Theme_switcher": {
+			"light": "light",
+			"dark": "dark",
+			"system": "system"
+		}
+	},
+	"Home": {
+		"welcome_title": "Welcome to the Community Wiki",
+		"welcome_description": "Your comprehensive resource for game information, guides, and community knowledge. All content is created and maintained by players like you.",
+		"guides_title": "Game Guides",
+		"guides_subtitle": "Comprehensive guides for beginners and veterans",
+		"guides_description": "Find detailed walkthroughs, strategy guides, and tips to help you master the game.",
+		"guides_button": "Browse Guides",
+		"database_title": "Game Database",
+		"database_subtitle": "Detailed information on all game elements",
+		"database_description": "Explore our comprehensive database of characters, items, locations, and more.",
+		"database_button": "Explore Database",
+		"community_title": "Community",
+		"community_subtitle": "Connect with other players",
+		"community_description": "Join discussions, share your knowledge, and connect with fellow players.",
+		"community_button": "Join Community"
+	},
+	"MineGrid": {
+		"title": "Mine Grid",
+		"created_by": "Created by [S10] IUDEXG",
+		"instructions": "🔴 Tap a tile to make it red. Tap red again to explode row & column.",
+		"description": "This grid helps you mine in the most efficient way. Since any unopened tile might be a bomb, you should always choose the tile whose explosion would clear the greatest number of currently available tiles.",
+		"reset_button": "Reset Grid",
+		"live_score": "💥 Live Score",
+		"max_score": "🏆 Max Score Achieved",
+		"remaining_tiles": "Remaining Tiles",
+		"tiles_by_impact": "Tiles by impact score:",
+		"score_label": "Score",
+		"high_scores": "🥇 High Scores:",
+		"score_number": "Score",
+		"no_scores": "(none yet)"
+	}
 }

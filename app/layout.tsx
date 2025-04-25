@@ -1,11 +1,10 @@
 // contactsapp/app/[locale]/layout.tsx
 
-import { ToastProvider } from "@/lib/config/providers/ToastProvder";
 import { ThemeProvider } from "@/lib/config/providers/ThemeProvider";
+import { ToastProvider } from "@/lib/config/providers/ToastProvder";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-
 
 export default async function RootLayout(props: {
 	children: React.ReactNode;

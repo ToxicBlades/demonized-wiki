@@ -29,72 +29,74 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "@/components/ui/sheet";
-
-// Authorized navigation links and their dropdown options
-const Navlinks = [
-	{
-		trigger: "User guides",
-		contentItems: [
-			{
-				title: "Beginners guide",
-				content: "Learn the basics of the game and how to progress",
-				href: RouteConfig.guides.beginners_guide,
-			},
-			{
-				title: "Community guides",
-				content: "Community guides made by other players",
-				href: RouteConfig.guides.community_guides.base,
-			},
-		],
-	},
-	{
-		trigger: "Game tabs",
-		contentItems: [
-			{
-				title: "Character",
-				content: "Stats,promotion,helper and more...",
-				href: RouteConfig.content.character,
-			},
-			{
-				title: "Item",
-				content: "Gear, materials crafting and more...",
-				href: RouteConfig.content.items,
-			},
-			{
-				title: "Skill",
-				content: "Skill stones, skill shop and more...",
-				href: RouteConfig.content.locations,
-			},
-			{
-				title: "Minion",
-				content: "Minions, monsters,phantoms and more...",
-				href: RouteConfig.content.resources,
-			},
-			{
-				title: "Shop",
-				content: "Summon, shop and more...",
-				href: RouteConfig.content.resources,
-			},
-			{
-				title: "Menu",
-				content: "Guild, Battlefield, Demon Village and more...",
-				href: RouteConfig.content.resources,
-			},
-		],
-	},
-];
-
-// Standard links without dropdowns
-const StandardLinks = [
-	{
-		label: "Mine Grid",
-		href: RouteConfig.mine_grid,
-	},
-];
+import { useMessages } from "next-intl";
 
 export default function NavigationLinks() {
 	const pathname = usePathname();
 	const [isOpen, setIsOpen] = useState(false);
+	const t = useMessages().Layout.Navigation_links;
+
+	// Authorized navigation links and their dropdown options
+	const Navlinks = [
+		{
+			trigger: t.user_guides,
+			contentItems: [
+				{
+					title: t.beginners_guide,
+					content: t.beginners_guide_desc,
+					href: RouteConfig.guides.beginners_guide,
+				},
+				{
+					title: t.community_guides,
+					content: t.community_guides_desc,
+					href: RouteConfig.guides.community_guides.base,
+				},
+			],
+		},
+		{
+			trigger: t.game_tabs,
+			contentItems: [
+				{
+					title: t.character,
+					content: t.character_desc,
+					href: RouteConfig.content.character,
+				},
+				{
+					title: t.item,
+					content: t.item_desc,
+					href: RouteConfig.content.items,
+				},
+				{
+					title: t.skill,
+					content: t.skill_desc,
+					href: RouteConfig.content.locations,
+				},
+				{
+					title: t.minion,
+					content: t.minion_desc,
+					href: RouteConfig.content.resources,
+				},
+				{
+					title: t.shop,
+					content: t.shop_desc,
+					href: RouteConfig.content.resources,
+				},
+				{
+					title: t.menu,
+					content: t.menu_desc,
+					href: RouteConfig.content.resources,
+				},
+			],
+		},
+	];
+
+	// Standard links without dropdowns
+	const StandardLinks = [
+		{
+			label: t.mine_grid,
+			href: RouteConfig.mine_grid,
+		},
+	];
 
 	// Desktop Navigation
 	const DesktopNavigation = (
@@ -172,7 +174,7 @@ export default function NavigationLinks() {
 								className="font-semibold text-lg"
 								onClick={() => setIsOpen(false)}
 							>
-								Unofficial Demonized Wiki
+								{useMessages().Layout.logo_text}
 							</Link>
 						</SheetTitle>
 					</SheetHeader>
@@ -207,7 +209,7 @@ export default function NavigationLinks() {
 						{/* Standard links in mobile view */}
 						<div className="flex flex-col space-y-4 px-1 pt-2">
 							<h3 className="font-medium text-muted-foreground text-sm">
-								Links
+								{t.links}
 							</h3>
 							<div className="flex flex-col space-y-2">
 								{StandardLinks.map((link, index) => (

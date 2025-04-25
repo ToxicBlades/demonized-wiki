@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
+import { useMessages } from "next-intl";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -14,7 +15,7 @@ import {
 
 export function ThemeSwitcher({ className }: { className?: string }) {
 	const { setTheme } = useTheme();
-
+	const t = useMessages().Layout.Theme_switcher;
 	return (
 		<div>
 			<DropdownMenu>
@@ -27,13 +28,13 @@ export function ThemeSwitcher({ className }: { className?: string }) {
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="end">
 					<DropdownMenuItem onClick={() => setTheme("light")}>
-						Light
+						{t.light}
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => setTheme("dark")}>
-						Dark
+						{t.dark}
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => setTheme("system")}>
-						System
+						{t.system}
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
