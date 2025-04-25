@@ -1,7 +1,9 @@
 import { Footer } from "@/components/layout/footer";
 import NavigationLinks from "@/components/layout/navbar";
+import { LanguageSwitcher } from "@/components/localeSwitcher";
 import { ThemeSwitcher } from "@/components/themeSwitcher";
 import { RouteConfig } from "@/lib/config/routeConfig";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import type React from "react";
 
@@ -10,6 +12,7 @@ export default async function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	const t = await getTranslations("Layout");
 	return (
 		<div className="flex">
 			<div className="flex flex-grow flex-col">
@@ -19,10 +22,8 @@ export default async function RootLayout({
 							<NavigationLinks />
 						</div>
 						<Link href={RouteConfig.home} className="font-semibold">
-							<span className="hidden md:inline">
-								Unofficial Demonized Wiki
-							</span>
-							<span className="md:hidden">Unofficial Demonized Wiki</span>
+							<span className="hidden md:inline">{t("logo_text")}</span>
+							<span className="md:hidden">{t("logo_text")}</span>
 						</Link>
 						<div className="hidden md:block">
 							<NavigationLinks />
@@ -31,6 +32,7 @@ export default async function RootLayout({
 
 					<div className="flex items-center gap-4">
 						<ThemeSwitcher />
+						<LanguageSwitcher />
 					</div>
 				</div>
 

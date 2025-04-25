@@ -1,6 +1,9 @@
+"use client";
 import { Loader2 } from "lucide-react";
+import { useMessages } from "next-intl";
 
 export default function LoadingComponent() {
+	const t = useMessages().Common;
 	return (
 		<div className="flex h-full w-full flex-col items-center justify-center gap-4 p-8">
 			<div className="relative">
@@ -12,10 +15,8 @@ export default function LoadingComponent() {
 				</div>
 			</div>
 			<div className="text-center">
-				<p className="font-semibold text-lg text-primary">Loading</p>
-				<p className="text-muted-foreground text-sm">
-					Please wait while we prepare your content
-				</p>
+				<p className="font-semibold text-lg text-primary">{t.loading}</p>
+				<p className="text-muted-foreground text-sm">{t.content_prepare}</p>
 			</div>
 		</div>
 	);

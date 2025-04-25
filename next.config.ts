@@ -1,5 +1,7 @@
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
 	pageExtensions: ["md", "mdx", "ts", "tsx"],
@@ -9,5 +11,4 @@ const nextConfig: NextConfig = {
 	output: "standalone",
 };
 
-// Merge MDX config with Next.js config
-export default createMDX()(nextConfig);
+export default withNextIntl(createMDX()(nextConfig));

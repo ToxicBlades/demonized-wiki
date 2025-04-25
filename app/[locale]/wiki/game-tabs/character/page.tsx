@@ -29,38 +29,68 @@ import {
 	UserPlus,
 	Zap,
 } from "lucide-react";
-import { useState } from "react";
+import { useMessages } from "next-intl";
+import { useEffect, useState } from "react";
+import AppearanceTab from "./(components)/appearance-tab";
+import AttributeTab from "./(components)/attribute-tab";
+import AwakeningTab from "./(components)/awakening-tab";
+import HelperTab from "./(components)/helper-tab";
+import MercenaryTab from "./(components)/mercenary-tab";
+import MysticalPowerTab from "./(components)/mystical-power-tab";
+import PassiveTab from "./(components)/passive-tab";
 import PromoteTab from "./(components)/promote-tab";
 import StatTab from "./(components)/stat-tab";
 import UpgradeTab from "./(components)/upgrade-tab";
 
-// Placeholder components for other tabs
-const AppearanceTab = () => <div className="p-4">Appearance Tab Content</div>;
-const AwakeningTab = () => <div className="p-4">Awakening Tab Content</div>;
-const MysticalPowerTab = () => (
-	<div className="p-4">Mystical Power Tab Content</div>
-);
-const PassiveTab = () => <div className="p-4">Passive Tab Content</div>;
-const AttributeTab = () => <div className="p-4">Attribute Tab Content</div>;
-const HelperTab = () => <div className="p-4">Helper Tab Content</div>;
-const MercenaryTab = () => <div className="p-4">Mercenary Tab Content</div>;
-
 export default function CharacterTab() {
-	const [activeTab, setActiveTab] = useState("stat");
+	const t = useMessages().Tabs["Character-tab"].labels;
 
 	// Define tabs with their icons and labels for reuse
 	const tabs = [
-		{ id: "stat", icon: BarChart3, label: "Stat" },
-		{ id: "upgrade", icon: ArrowUp, label: "Upgrade" },
-		{ id: "promote", icon: Crown, label: "Promote" },
-		{ id: "appearance", icon: Palette, label: "Appearance" },
-		{ id: "awakening", icon: Sparkles, label: "Awakening" },
-		{ id: "mystical-power", icon: Zap, label: "Mystical Power" },
-		{ id: "passive", icon: Shield, label: "Passive" },
-		{ id: "attribute", icon: Target, label: "Attribute" },
-		{ id: "helper", icon: UserPlus, label: "Helper" },
-		{ id: "mercenary", icon: Swords, label: "Mercenary" },
+		{ id: "stat", icon: BarChart3, label: t.stat },
+		{ id: "upgrade", icon: ArrowUp, label: t.upgrade },
+		{ id: "promote", icon: Crown, label: t.promote },
+		{ id: "appearance", icon: Palette, label: t.appearance },
+		{ id: "awakening", icon: Sparkles, label: t.awakening },
+		{ id: "mystical-power", icon: Zap, label: t.mystical_power },
+		{ id: "passive", icon: Shield, label: t.passive },
+		{ id: "attribute", icon: Target, label: t.attribute },
+		{ id: "helper", icon: UserPlus, label: t.helper },
+		{ id: "mercenary", icon: Swords, label: t.mercenary },
 	];
+
+	const [activeTab, setActiveTab] = useState("stat");
+
+	// Function to get tab ID from URL hash
+	const getTabFromHash = () => {
+		if (typeof window !== "undefined") {
+			const hash = window.location.hash.replace("#", "");
+			return tabs.some((tab) => tab.id === hash) ? hash : "stat";
+		}
+		return "stat";
+	};
+
+	// Update URL hash when tab changes
+	const updateTabAndHash = (tabId: string) => {
+		setActiveTab(tabId);
+		if (typeof window !== "undefined") {
+			window.history.pushState(null, "", `#${tabId}`);
+		}
+	};
+
+	// Initialize tab from URL hash on component mount
+	useEffect(() => {
+		const tabFromHash = getTabFromHash();
+		setActiveTab(tabFromHash);
+
+		// Handle browser back/forward navigation
+		const handlePopState = () => {
+			setActiveTab(getTabFromHash());
+		};
+
+		window.addEventListener("popstate", handlePopState);
+		return () => window.removeEventListener("popstate", handlePopState);
+	}, []);
 
 	// Find the active tab object
 	const activeTabObj = tabs.find((tab) => tab.id === activeTab) || tabs[0];
@@ -72,10 +102,10 @@ export default function CharacterTab() {
 					<div className="flex items-center justify-between">
 						<div>
 							<CardTitle className="font-bold text-xl sm:text-2xl">
-								Character
+								{t.title}
 							</CardTitle>
 							<CardDescription className="mt-1 text-sm">
-								Manage your character's abilities, appearance and companions
+								{t.description}
 							</CardDescription>
 						</div>
 					</div>
@@ -101,7 +131,7 @@ export default function CharacterTab() {
 											"flex cursor-pointer items-center gap-2 py-2",
 											activeTab === tab.id && "bg-accent",
 										)}
-										onClick={() => setActiveTab(tab.id)}
+										onClick={() => updateTabAndHash(tab.id)}
 									>
 										<tab.icon className="h-4 w-4" />
 										<span>{tab.label}</span>
@@ -115,7 +145,7 @@ export default function CharacterTab() {
 					<div className="hidden md:block">
 						<Tabs
 							value={activeTab}
-							onValueChange={setActiveTab}
+							onValueChange={updateTabAndHash}
 							className="w-full"
 						>
 							<TabsList className="grid h-auto grid-cols-5 gap-1 lg:grid-cols-10">
@@ -127,7 +157,9 @@ export default function CharacterTab() {
 									>
 										<tab.icon className="mb-1 h-4 w-4" />
 										<span className="font-medium text-xs">
-											{tab.id === "mystical-power" ? "Mystical" : tab.label}
+											{tab.id === "mystical-power"
+												? t.mystical_short
+												: tab.label}
 										</span>
 									</TabsTrigger>
 								))}

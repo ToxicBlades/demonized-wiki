@@ -43,7 +43,9 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more informati
 
 ## Support
 
-This is not obligatory, the best support you can provide is share this wiki and help us to create content
+The best support you can provide is share this wiki and help us to create content.
+
+Buy groceries for the week ahead, buy flowers for your girlfriend and mom. Go out for coffee/beer with your friends. Buy something that you wanted to buy for a long time but for some reason did not buy, put aside money for a vacation and only then if there is something left,you can support me.
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/toxicblade?new=1)
 ---
