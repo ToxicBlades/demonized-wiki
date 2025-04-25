@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/table";
 import { useMediaQuery } from "@/hooks/use-mobile";
 import { ArrowUpCircle, ChevronDown, Palette } from "lucide-react";
+import { useMessages } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -31,30 +32,33 @@ export default function AppearanceTab() {
 	const isDesktop = useMediaQuery("(min-width: 768px)");
 	const [expandedTier, setExpandedTier] = useState<string | null>(null);
 
+	const t = useMessages().Tabs["Character-tab"].Appearance;
+	const statsT = useMessages().Stats;
+
 	const possibleStats = [
-		"STR",
-		"DEX",
-		"Min ATK",
-		"Max ATK",
-		"ATK",
-		"ATK%",
-		"Accuracy",
-		"Evasion",
-		"CRIT ATK%",
-		"Fire ATK",
-		"Water ATK",
-		"Earth ATK",
-		"Wind ATK",
-		"Trait ATK%",
+		statsT.str,
+		statsT.dex,
+		statsT.min_atk,
+		statsT.max_atk,
+		statsT.atk,
+		`${statsT.atk}%`,
+		statsT.accuracy,
+		statsT.evasion,
+		`${statsT.crit_atk}%`,
+		statsT.fire_atk,
+		statsT.water_atk,
+		statsT.earth_atk,
+		statsT.wind_atk,
+		`${statsT.trait_atack}%`,
 	];
 
 	const recommendedStats = [
-		"Accuracy",
-		"DEX",
-		"Trait ATK%",
-		"Earth ATK",
-		"Water ATK",
-		"Wind ATK",
+		statsT.accuracy,
+		statsT.dex,
+		`${statsT.trait_atack}%`,
+		statsT.earth_atk,
+		statsT.water_atk,
+		statsT.wind_atk,
 	];
 
 	const promotionTiers = [
@@ -62,280 +66,280 @@ export default function AppearanceTab() {
 			name: "Red",
 			image: "/characters/red.png",
 			stats: [
-				{ name: "STR", range: "50~1000" },
-				{ name: "DEX", range: "50~1000" },
-				{ name: "Min ATK", range: "200~4000" },
-				{ name: "Max ATK", range: "300~6000" },
-				{ name: "ATK", range: "250~5000" },
-				{ name: "ATK%", range: "5~100" },
-				{ name: "Accuracy", range: "50~1000" },
-				{ name: "Evasion", range: "50~1000" },
-				{ name: "CRIT ATK%", range: "10~150" },
-				{ name: "Fire ATK", range: "250~5000" },
-				{ name: "Water ATK", range: "250~5000" },
-				{ name: "Earth ATK", range: "250~5000" },
-				{ name: "Wind ATK", range: "250~5000" },
-				{ name: "Trait ATK%", range: "5~100" },
+				{ name: statsT.str, range: "50~1000" },
+				{ name: statsT.dex, range: "50~1000" },
+				{ name: statsT.min_atk, range: "200~4000" },
+				{ name: statsT.max_atk, range: "300~6000" },
+				{ name: statsT.atk, range: "250~5000" },
+				{ name: `${statsT.atk}%`, range: "5~100" },
+				{ name: statsT.accuracy, range: "50~1000" },
+				{ name: statsT.evasion, range: "50~1000" },
+				{ name: `${statsT.crit_atk}%`, range: "10~150" },
+				{ name: statsT.fire_atk, range: "250~5000" },
+				{ name: statsT.water_atk, range: "250~5000" },
+				{ name: statsT.earth_atk, range: "250~5000" },
+				{ name: statsT.wind_atk, range: "250~5000" },
+				{ name: `${statsT.trait_atack}%`, range: "5~100" },
 			],
 		},
 		{
 			name: "Black",
 			image: "/characters/black.png",
 			stats: [
-				{ name: "STR", range: "50~1000" },
-				{ name: "DEX", range: "50~1000" },
-				{ name: "Min ATK", range: "200~4000" },
-				{ name: "Max ATK", range: "300~6000" },
-				{ name: "ATK", range: "250~5000" },
-				{ name: "ATK%", range: "5~100" },
-				{ name: "Accuracy", range: "50~1000" },
-				{ name: "Evasion", range: "50~1000" },
-				{ name: "CRIT ATK%", range: "10~150" },
-				{ name: "Fire ATK", range: "250~5000" },
-				{ name: "Water ATK", range: "250~5000" },
-				{ name: "Earth ATK", range: "250~5000" },
-				{ name: "Wind ATK", range: "250~5000" },
-				{ name: "Trait ATK%", range: "5~100" },
+				{ name: statsT.str, range: "50~1000" },
+				{ name: statsT.dex, range: "50~1000" },
+				{ name: statsT.min_atk, range: "200~4000" },
+				{ name: statsT.max_atk, range: "300~6000" },
+				{ name: statsT.atk, range: "250~5000" },
+				{ name: `${statsT.atk}%`, range: "5~100" },
+				{ name: statsT.accuracy, range: "50~1000" },
+				{ name: statsT.evasion, range: "50~1000" },
+				{ name: `${statsT.crit_atk}%`, range: "10~150" },
+				{ name: statsT.fire_atk, range: "250~5000" },
+				{ name: statsT.water_atk, range: "250~5000" },
+				{ name: statsT.earth_atk, range: "250~5000" },
+				{ name: statsT.wind_atk, range: "250~5000" },
+				{ name: `${statsT.trait_atack}%`, range: "5~100" },
 			],
 		},
 		{
 			name: "Death Knight",
 			image: "/characters/death_knight.png",
 			stats: [
-				{ name: "STR", range: "50~1000" },
-				{ name: "DEX", range: "50~1000" },
-				{ name: "Min ATK", range: "200~4000" },
-				{ name: "Max ATK", range: "300~6000" },
-				{ name: "ATK", range: "250~5000" },
-				{ name: "ATK%", range: "5~100" },
-				{ name: "Accuracy", range: "50~1000" },
-				{ name: "Evasion", range: "50~1000" },
-				{ name: "CRIT ATK%", range: "10~150" },
-				{ name: "Fire ATK", range: "250~5000" },
-				{ name: "Water ATK", range: "250~5000" },
-				{ name: "Earth ATK", range: "250~5000" },
-				{ name: "Wind ATK", range: "250~5000" },
-				{ name: "Trait ATK%", range: "5~100" },
+				{ name: statsT.str, range: "50~1000" },
+				{ name: statsT.dex, range: "50~1000" },
+				{ name: statsT.min_atk, range: "200~4000" },
+				{ name: statsT.max_atk, range: "300~6000" },
+				{ name: statsT.atk, range: "250~5000" },
+				{ name: `${statsT.atk}%`, range: "5~100" },
+				{ name: statsT.accuracy, range: "50~1000" },
+				{ name: statsT.evasion, range: "50~1000" },
+				{ name: `${statsT.crit_atk}%`, range: "10~150" },
+				{ name: statsT.fire_atk, range: "250~5000" },
+				{ name: statsT.water_atk, range: "250~5000" },
+				{ name: statsT.earth_atk, range: "250~5000" },
+				{ name: statsT.wind_atk, range: "250~5000" },
+				{ name: `${statsT.trait_atack}%`, range: "5~100" },
 			],
 		},
 		{
 			name: "Dark Knight",
 			image: "/characters/dark_knight.png",
 			stats: [
-				{ name: "STR", range: "50~1000" },
-				{ name: "DEX", range: "50~1000" },
-				{ name: "Min ATK", range: "200~4000" },
-				{ name: "Max ATK", range: "300~6000" },
-				{ name: "ATK", range: "250~5000" },
-				{ name: "ATK%", range: "5~100" },
-				{ name: "Accuracy", range: "50~1000" },
-				{ name: "Evasion", range: "50~1000" },
-				{ name: "CRIT ATK%", range: "10~150" },
-				{ name: "Fire ATK", range: "250~5000" },
-				{ name: "Water ATK", range: "250~5000" },
-				{ name: "Earth ATK", range: "250~5000" },
-				{ name: "Wind ATK", range: "250~5000" },
-				{ name: "Trait ATK%", range: "5~100" },
+				{ name: statsT.str, range: "50~1000" },
+				{ name: statsT.dex, range: "50~1000" },
+				{ name: statsT.min_atk, range: "200~4000" },
+				{ name: statsT.max_atk, range: "300~6000" },
+				{ name: statsT.atk, range: "250~5000" },
+				{ name: `${statsT.atk}%`, range: "5~100" },
+				{ name: statsT.accuracy, range: "50~1000" },
+				{ name: statsT.evasion, range: "50~1000" },
+				{ name: `${statsT.crit_atk}%`, range: "10~150" },
+				{ name: statsT.fire_atk, range: "250~5000" },
+				{ name: statsT.water_atk, range: "250~5000" },
+				{ name: statsT.earth_atk, range: "250~5000" },
+				{ name: statsT.wind_atk, range: "250~5000" },
+				{ name: `${statsT.trait_atack}%`, range: "5~100" },
 			],
 		},
 		{
 			name: "Ark Knight",
 			image: "/characters/ark_knight.png",
 			stats: [
-				{ name: "STR", range: "200~4000" },
-				{ name: "DEX", range: "200~4000" },
-				{ name: "Min ATK", range: "800~16000" },
-				{ name: "Max ATK", range: "1200~24000" },
-				{ name: "ATK", range: "1000~20000" },
-				{ name: "ATK%", range: "20~400" },
-				{ name: "Accuracy", range: "200~4000" },
-				{ name: "Evasion", range: "200~4000" },
-				{ name: "CRIT ATK%", range: "40~600" },
-				{ name: "Fire ATK", range: "1000~20000" },
-				{ name: "Water ATK", range: "1000~20000" },
-				{ name: "Earth ATK", range: "1000~20000" },
-				{ name: "Wind ATK", range: "1000~20000" },
-				{ name: "Trait ATK%", range: "20~400" },
+				{ name: statsT.str, range: "200~4000" },
+				{ name: statsT.dex, range: "200~4000" },
+				{ name: statsT.min_atk, range: "800~16000" },
+				{ name: statsT.max_atk, range: "1200~24000" },
+				{ name: statsT.atk, range: "1000~20000" },
+				{ name: `${statsT.atk}%`, range: "20~400" },
+				{ name: statsT.accuracy, range: "200~4000" },
+				{ name: statsT.evasion, range: "200~4000" },
+				{ name: `${statsT.crit_atk}%`, range: "40~600" },
+				{ name: statsT.fire_atk, range: "1000~20000" },
+				{ name: statsT.water_atk, range: "1000~20000" },
+				{ name: statsT.earth_atk, range: "1000~20000" },
+				{ name: statsT.wind_atk, range: "1000~20000" },
+				{ name: `${statsT.trait_atack}%`, range: "20~400" },
 			],
 		},
 		{
 			name: "Knight King",
 			image: "/characters/knight_king.png",
 			stats: [
-				{ name: "STR", range: "300~6000" },
-				{ name: "DEX", range: "300~6000" },
-				{ name: "Min ATK", range: "1200~24000" },
-				{ name: "Max ATK", range: "1800~36000" },
-				{ name: "ATK", range: "1500~30000" },
-				{ name: "ATK%", range: "30~600" },
-				{ name: "Accuracy", range: "300~6000" },
-				{ name: "Evasion", range: "300~6000" },
-				{ name: "CRIT ATK%", range: "60~900" },
-				{ name: "Fire ATK", range: "1500~30000" },
-				{ name: "Water ATK", range: "1500~30000" },
-				{ name: "Earth ATK", range: "1500~30000" },
-				{ name: "Wind ATK", range: "1500~30000" },
-				{ name: "Trait ATK%", range: "30~600" },
+				{ name: statsT.str, range: "300~6000" },
+				{ name: statsT.dex, range: "300~6000" },
+				{ name: statsT.min_atk, range: "1200~24000" },
+				{ name: statsT.max_atk, range: "1800~36000" },
+				{ name: statsT.atk, range: "1500~30000" },
+				{ name: `${statsT.atk}%`, range: "30~600" },
+				{ name: statsT.accuracy, range: "300~6000" },
+				{ name: statsT.evasion, range: "300~6000" },
+				{ name: `${statsT.crit_atk}%`, range: "60~900" },
+				{ name: statsT.fire_atk, range: "1500~30000" },
+				{ name: statsT.water_atk, range: "1500~30000" },
+				{ name: statsT.earth_atk, range: "1500~30000" },
+				{ name: statsT.wind_atk, range: "1500~30000" },
+				{ name: `${statsT.trait_atack}%`, range: "30~600" },
 			],
 		},
 		{
 			name: "Devil King",
 			image: "/characters/devil_king.png",
 			stats: [
-				{ name: "STR", range: "400~8000" },
-				{ name: "DEX", range: "400~8000" },
-				{ name: "Min ATK", range: "1600~32000" },
-				{ name: "Max ATK", range: "2400~48000" },
-				{ name: "ATK", range: "2000~40000" },
-				{ name: "ATK%", range: "40~800" },
-				{ name: "Accuracy", range: "400~8000" },
-				{ name: "Evasion", range: "400~8000" },
-				{ name: "CRIT ATK%", range: "80~1200" },
-				{ name: "Fire ATK", range: "2000~40000" },
-				{ name: "Water ATK", range: "2000~40000" },
-				{ name: "Earth ATK", range: "2000~40000" },
-				{ name: "Wind ATK", range: "2000~40000" },
-				{ name: "Trait ATK%", range: "40~800" },
+				{ name: statsT.str, range: "400~8000" },
+				{ name: statsT.dex, range: "400~8000" },
+				{ name: statsT.min_atk, range: "1600~32000" },
+				{ name: statsT.max_atk, range: "2400~48000" },
+				{ name: statsT.atk, range: "2000~40000" },
+				{ name: `${statsT.atk}%`, range: "40~800" },
+				{ name: statsT.accuracy, range: "400~8000" },
+				{ name: statsT.evasion, range: "400~8000" },
+				{ name: `${statsT.crit_atk}%`, range: "80~1200" },
+				{ name: statsT.fire_atk, range: "2000~40000" },
+				{ name: statsT.water_atk, range: "2000~40000" },
+				{ name: statsT.earth_atk, range: "2000~40000" },
+				{ name: statsT.wind_atk, range: "2000~40000" },
+				{ name: `${statsT.trait_atack}%`, range: "40~800" },
 			],
 		},
 		{
 			name: "Soul King",
 			image: "/characters/soul_king.png",
 			stats: [
-				{ name: "STR", range: "500~10000" },
-				{ name: "DEX", range: "500~10000" },
-				{ name: "Min ATK", range: "2000~40000" },
-				{ name: "Max ATK", range: "3000~60000" },
-				{ name: "ATK", range: "2500~50000" },
-				{ name: "ATK%", range: "50~1000" },
-				{ name: "Accuracy", range: "500~10000" },
-				{ name: "Evasion", range: "500~10000" },
-				{ name: "CRIT ATK%", range: "100~1500" },
-				{ name: "Fire ATK", range: "2500~50000" },
-				{ name: "Water ATK", range: "2500~50000" },
-				{ name: "Earth ATK", range: "2500~50000" },
-				{ name: "Wind ATK", range: "2500~50000" },
-				{ name: "Trait ATK%", range: "50~1000" },
+				{ name: statsT.str, range: "500~10000" },
+				{ name: statsT.dex, range: "500~10000" },
+				{ name: statsT.min_atk, range: "2000~40000" },
+				{ name: statsT.max_atk, range: "3000~60000" },
+				{ name: statsT.atk, range: "2500~50000" },
+				{ name: `${statsT.atk}%`, range: "50~1000" },
+				{ name: statsT.accuracy, range: "500~10000" },
+				{ name: statsT.evasion, range: "500~10000" },
+				{ name: `${statsT.crit_atk}%`, range: "100~1500" },
+				{ name: statsT.fire_atk, range: "2500~50000" },
+				{ name: statsT.water_atk, range: "2500~50000" },
+				{ name: statsT.earth_atk, range: "2500~50000" },
+				{ name: statsT.wind_atk, range: "2500~50000" },
+				{ name: `${statsT.trait_atack}%`, range: "50~1000" },
 			],
 		},
 		{
 			name: "Leoric",
 			image: "/characters/leoric.png",
 			stats: [
-				{ name: "STR", range: "600~12000" },
-				{ name: "DEX", range: "600~12000" },
-				{ name: "Min ATK", range: "2400~48000" },
-				{ name: "Max ATK", range: "3600~72000" },
-				{ name: "ATK", range: "3000~60000" },
-				{ name: "ATK%", range: "60~1200" },
-				{ name: "Accuracy", range: "600~12000" },
-				{ name: "Evasion", range: "600~12000" },
-				{ name: "CRIT ATK%", range: "120~1800" },
-				{ name: "Fire ATK", range: "3000~60000" },
-				{ name: "Water ATK", range: "3000~60000" },
-				{ name: "Earth ATK", range: "3000~60000" },
-				{ name: "Wind ATK", range: "3000~60000" },
-				{ name: "Trait ATK%", range: "60~1200" },
+				{ name: statsT.str, range: "600~12000" },
+				{ name: statsT.dex, range: "600~12000" },
+				{ name: statsT.min_atk, range: "2400~48000" },
+				{ name: statsT.max_atk, range: "3600~72000" },
+				{ name: statsT.atk, range: "3000~60000" },
+				{ name: `${statsT.atk}%`, range: "60~1200" },
+				{ name: statsT.accuracy, range: "600~12000" },
+				{ name: statsT.evasion, range: "600~12000" },
+				{ name: `${statsT.crit_atk}%`, range: "120~1800" },
+				{ name: statsT.fire_atk, range: "3000~60000" },
+				{ name: statsT.water_atk, range: "3000~60000" },
+				{ name: statsT.earth_atk, range: "3000~60000" },
+				{ name: statsT.wind_atk, range: "3000~60000" },
+				{ name: `${statsT.trait_atack}%`, range: "60~1200" },
 			],
 		},
 		{
 			name: "Arthas",
 			image: "/characters/arthas.png",
 			stats: [
-				{ name: "STR", range: "700~14000" },
-				{ name: "DEX", range: "700~14000" },
-				{ name: "Min ATK", range: "2800~56000" },
-				{ name: "Max ATK", range: "4200~84000" },
-				{ name: "ATK", range: "3500~70000" },
-				{ name: "ATK%", range: "70~1400" },
-				{ name: "Accuracy", range: "700~14000" },
-				{ name: "Evasion", range: "700~14000" },
-				{ name: "CRIT ATK%", range: "140~2100" },
-				{ name: "Fire ATK", range: "3500~70000" },
-				{ name: "Water ATK", range: "3500~70000" },
-				{ name: "Earth ATK", range: "3500~70000" },
-				{ name: "Wind ATK", range: "3500~70000" },
-				{ name: "Trait ATK%", range: "70~1400" },
+				{ name: statsT.str, range: "700~14000" },
+				{ name: statsT.dex, range: "700~14000" },
+				{ name: statsT.min_atk, range: "2800~56000" },
+				{ name: statsT.max_atk, range: "4200~84000" },
+				{ name: statsT.atk, range: "3500~70000" },
+				{ name: `${statsT.atk}%`, range: "70~1400" },
+				{ name: statsT.accuracy, range: "700~14000" },
+				{ name: statsT.evasion, range: "700~14000" },
+				{ name: `${statsT.crit_atk}%`, range: "140~2100" },
+				{ name: statsT.fire_atk, range: "3500~70000" },
+				{ name: statsT.water_atk, range: "3500~70000" },
+				{ name: statsT.earth_atk, range: "3500~70000" },
+				{ name: statsT.wind_atk, range: "3500~70000" },
+				{ name: `${statsT.trait_atack}%`, range: "70~1400" },
 			],
 		},
 		{
 			name: "Knight Shadow",
 			image: "/characters/knight_shadow.png",
 			stats: [
-				{ name: "STR", range: "800~16000" },
-				{ name: "DEX", range: "800~16000" },
-				{ name: "Min ATK", range: "3200~64000" },
-				{ name: "Max ATK", range: "4800~96000" },
-				{ name: "ATK", range: "4000~80000" },
-				{ name: "ATK%", range: "80~1600" },
-				{ name: "Accuracy", range: "800~16000" },
-				{ name: "Evasion", range: "800~16000" },
-				{ name: "CRIT ATK%", range: "160~2400" },
-				{ name: "Fire ATK", range: "4000~80000" },
-				{ name: "Water ATK", range: "4000~80000" },
-				{ name: "Earth ATK", range: "4000~80000" },
-				{ name: "Wind ATK", range: "4000~80000" },
-				{ name: "Trait ATK%", range: "80~1600" },
+				{ name: statsT.str, range: "800~16000" },
+				{ name: statsT.dex, range: "800~16000" },
+				{ name: statsT.min_atk, range: "3200~64000" },
+				{ name: statsT.max_atk, range: "4800~96000" },
+				{ name: statsT.atk, range: "4000~80000" },
+				{ name: `${statsT.atk}%`, range: "80~1600" },
+				{ name: statsT.accuracy, range: "800~16000" },
+				{ name: statsT.evasion, range: "800~16000" },
+				{ name: `${statsT.crit_atk}%`, range: "160~2400" },
+				{ name: statsT.fire_atk, range: "4000~80000" },
+				{ name: statsT.water_atk, range: "4000~80000" },
+				{ name: statsT.earth_atk, range: "4000~80000" },
+				{ name: statsT.wind_atk, range: "4000~80000" },
+				{ name: `${statsT.trait_atack}%`, range: "80~1600" },
 			],
 		},
 		{
 			name: "Demon Slayer",
 			image: "/characters/demon_slayer.png",
 			stats: [
-				{ name: "STR", range: "900~18000" },
-				{ name: "DEX", range: "900~18000" },
-				{ name: "Min ATK", range: "3600~72000" },
-				{ name: "Max ATK", range: "5400~108000" },
-				{ name: "ATK", range: "4500~90000" },
-				{ name: "ATK%", range: "90~1800" },
-				{ name: "Accuracy", range: "900~18000" },
-				{ name: "Evasion", range: "900~18000" },
-				{ name: "CRIT ATK%", range: "180~2700" },
-				{ name: "Fire ATK", range: "4500~90000" },
-				{ name: "Water ATK", range: "4500~90000" },
-				{ name: "Earth ATK", range: "4500~90000" },
-				{ name: "Wind ATK", range: "4500~90000" },
-				{ name: "Trait ATK%", range: "90~1800" },
+				{ name: statsT.str, range: "900~18000" },
+				{ name: statsT.dex, range: "900~18000" },
+				{ name: statsT.min_atk, range: "3600~72000" },
+				{ name: statsT.max_atk, range: "5400~108000" },
+				{ name: statsT.atk, range: "4500~90000" },
+				{ name: `${statsT.atk}%`, range: "90~1800" },
+				{ name: statsT.accuracy, range: "900~18000" },
+				{ name: statsT.evasion, range: "900~18000" },
+				{ name: `${statsT.crit_atk}%`, range: "180~2700" },
+				{ name: statsT.fire_atk, range: "4500~90000" },
+				{ name: statsT.water_atk, range: "4500~90000" },
+				{ name: statsT.earth_atk, range: "4500~90000" },
+				{ name: statsT.wind_atk, range: "4500~90000" },
+				{ name: `${statsT.trait_atack}%`, range: "90~1800" },
 			],
 		},
 	];
 
 	const specialSkins = [
 		{
-			name: "Berserker",
+			name: t.berserker,
 			image: "/skins/berserker.png",
-			source: "Transcendence Shop: 30 coins",
-			effect: "Appearence HP +1% per level",
+			source: t.berserker_source,
+			effect: t.berserker_effect,
 		},
 		{
-			name: "Oni",
+			name: t.oni,
 			image: "/skins/oni.png",
-			source: "Transcendence Shop: 30 coins",
-			effect: "Appearence Attack Power +1% per level",
+			source: t.oni_source,
+			effect: t.oni_effect,
 		},
 		{
-			name: "Succubus",
+			name: t.succubus,
 			image: "/skins/succubus.png",
-			source: "Blood Contract: 400k blood",
-			effect: "Appearence Skill Attack Power +1% per level",
+			source: t.succubus_source,
+			effect: t.succubus_effect,
 		},
 		{
-			name: "Funny Demon",
+			name: t.funny_demon,
 			image: "/skins/funny_demon.png",
-			source: "Second Year Anniversary",
-			effect: "Appearence Skill Attack Power +1% per level",
+			source: t.funny_demon_source,
+			effect: t.funny_demon_effect,
 		},
 		{
-			name: "Dancer of the Mist",
+			name: t.dancer,
 			image: "/skins/dancer_of_the_mist.png",
-			source: "Cherry Blossom Event",
-			effect: "Appearence Attack Power +1% per level",
+			source: t.dancer_source,
+			effect: t.dancer_effect,
 		},
 		{
-			name: "Dragon Tamer",
+			name: t.dragon_tamer,
 			image: "/skins/dragon_tamer.png",
-			source: "Blue Dragon Event",
-			effect: "Appeareance HP +1% per level",
+			source: t.dragon_tamer_source,
+			effect: t.dragon_tamer_effect,
 		},
 	];
 
@@ -352,25 +356,22 @@ export default function AppearanceTab() {
 			<CardHeader>
 				<CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
 					<Palette className="h-5 w-5 text-primary sm:h-6 sm:w-6" />
-					Appearance Ability
+					{t.title}
 				</CardTitle>
-				<CardDescription>
-					Upgrade your character's appearance and stats through the promotion
-					system
-				</CardDescription>
+				<CardDescription>{t.description}</CardDescription>
 			</CardHeader>
 			<CardContent className="p-3 sm:p-6">
 				<div className="space-y-4 sm:space-y-6">
 					<div className="rounded-lg">
 						<p className="mb-4 text-slate-700 text-xs leading-relaxed sm:text-sm dark:text-slate-300">
-							Promoting your character provides not only new skins but also
-							appearance abilities for each skin. You get 2 slots on 1st level
-							of skin and +1 slot for each level up.
+							{t.intro_text}
 						</p>
 
 						<div className="space-y-4">
 							<div>
-								<h4 className="mb-2 font-semibold text-sm">Possible Stats:</h4>
+								<h4 className="mb-2 font-semibold text-sm">
+									{t.possible_stats}:
+								</h4>
 								<div className="grid grid-cols-2 gap-2 text-xs sm:grid-cols-3 sm:text-sm md:grid-cols-4">
 									{possibleStats.map((stat, index) => (
 										<div
@@ -386,18 +387,13 @@ export default function AppearanceTab() {
 							<div className="rounded-lg bg-amber-50 p-3 text-xs sm:text-sm dark:bg-amber-950/30">
 								<p className="mb-1 flex items-center font-medium">
 									<ArrowUpCircle className="mr-1 h-4 w-4 text-amber-600 dark:text-amber-400" />
-									Beginner Tip:
+									{t.beginner_tip_title}:
 								</p>
-								<p>
-									At the start, focus on rolling for legendary and mythic stats
-									regardless of which ones they are. As you progress to
-									mid-game, follow the recommended stats for all appearance
-									skins.
-								</p>
+								<p>{t.beginner_tip_text}</p>
 							</div>
 							<div>
 								<h4 className="mb-2 font-semibold text-sm">
-									Recommended Stats
+									{t.recommended_stats}
 								</h4>
 								<div className="grid grid-cols-2 gap-2 text-xs sm:grid-cols-3 sm:text-sm">
 									{recommendedStats.map((stat, index) => (
@@ -415,7 +411,7 @@ export default function AppearanceTab() {
 
 					<h3 className="flex items-center font-semibold text-base sm:text-lg">
 						<Palette className="mr-2 h-4 w-4 text-primary sm:h-5 sm:w-5" />
-						Promotion Tiers and stats
+						{t.tiers_title}
 					</h3>
 
 					{isDesktop ? (
@@ -424,12 +420,14 @@ export default function AppearanceTab() {
 								<TableHeader>
 									<TableRow>
 										<TableHead className="w-[80px] sm:w-[150px]">
-											Skin
+											{t.skin_column}
 										</TableHead>
 										<TableHead className="w-[60px] sm:w-[120px]">
-											Preview
+											{t.preview_column}
 										</TableHead>
-										<TableHead className="text-center">Slots</TableHead>
+										<TableHead className="text-center">
+											{t.slots_column}
+										</TableHead>
 									</TableRow>
 								</TableHeader>
 								<TableBody>
@@ -440,7 +438,7 @@ export default function AppearanceTab() {
 												<div className="relative h-12 w-12 overflow-hidden rounded-md sm:h-16 sm:w-16">
 													<Image
 														src={tier.image || "/placeholder.svg"}
-														alt={`${tier.name} promotion skin`}
+														alt={`${tier.name} ${t.promotion_skin_alt}`}
 														width={64}
 														height={64}
 														className="object-cover"
@@ -452,7 +450,7 @@ export default function AppearanceTab() {
 													<div className="rounded p-2 text-xs">
 														<Select>
 															<SelectTrigger className="w-full">
-																<SelectValue placeholder="Check stat range" />
+																<SelectValue placeholder={t.check_stat_range} />
 															</SelectTrigger>
 															<SelectContent>
 																{tier.stats.map((stat, idx) => (
@@ -483,7 +481,7 @@ export default function AppearanceTab() {
 												<div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-md">
 													<Image
 														src={tier.image || "/placeholder.svg"}
-														alt={`${tier.name} promotion skin`}
+														alt={`${tier.name} ${t.promotion_skin_alt}`}
 														width={56}
 														height={56}
 														className="object-cover"
@@ -492,7 +490,7 @@ export default function AppearanceTab() {
 												<div>
 													<h4 className="font-medium">{tier.name}</h4>
 													<p className="text-slate-500 text-xs dark:text-slate-400">
-														Tap to view stat ranges
+														{t.tap_to_view}
 													</p>
 												</div>
 											</div>
@@ -504,7 +502,7 @@ export default function AppearanceTab() {
 										{expandedTier === tier.name && (
 											<div className="mt-3 border-t pt-3">
 												<h5 className="mb-2 font-medium text-sm">
-													Stat Ranges:
+													{t.stat_ranges}:
 												</h5>
 												<div className="grid grid-cols-1 gap-2 text-xs">
 													{tier.stats.map((stat, idx) => (
@@ -528,11 +526,11 @@ export default function AppearanceTab() {
 
 				<h3 className="mt-6 flex items-center font-semibold text-base sm:text-lg">
 					<Palette className="mr-2 h-4 w-4 text-primary sm:h-5 sm:w-5" />
-					Special Appearance
+					{t.special_appearance}
 				</h3>
 
 				<p className="mb-4 text-slate-700 text-xs leading-relaxed sm:text-sm dark:text-slate-300">
-					You can receive different skins which have possess effect bonuses
+					{t.special_appearance_text}
 				</p>
 
 				{isDesktop ? (
@@ -540,12 +538,14 @@ export default function AppearanceTab() {
 						<Table className="w-full">
 							<TableHeader>
 								<TableRow>
-									<TableHead className="w-[80px] sm:w-[150px]">Skin</TableHead>
-									<TableHead className="w-[60px] sm:w-[120px]">
-										Preview
+									<TableHead className="w-[80px] sm:w-[150px]">
+										{t.skin_column}
 									</TableHead>
-									<TableHead>Source</TableHead>
-									<TableHead>Possess Effect</TableHead>
+									<TableHead className="w-[60px] sm:w-[120px]">
+										{t.preview_column}
+									</TableHead>
+									<TableHead>{t.source_column}</TableHead>
+									<TableHead>{t.effect_column}</TableHead>
 								</TableRow>
 							</TableHeader>
 							<TableBody>
@@ -556,7 +556,7 @@ export default function AppearanceTab() {
 											<div className="relative h-12 w-12 overflow-hidden rounded-md sm:h-16 sm:w-16">
 												<Image
 													src={skin.image || "/placeholder.svg"}
-													alt={`${skin.name} special skin`}
+													alt={`${skin.name} ${t.special_skin_alt}`}
 													width={64}
 													height={64}
 													className="object-cover"
@@ -579,7 +579,7 @@ export default function AppearanceTab() {
 										<div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-md">
 											<Image
 												src={skin.image || "/placeholder.svg"}
-												alt={`${skin.name} special skin`}
+												alt={`${skin.name} ${t.special_skin_alt}`}
 												width={56}
 												height={56}
 												className="object-cover"
@@ -593,7 +593,8 @@ export default function AppearanceTab() {
 										</div>
 									</div>
 									<div className="mt-2 rounded-md bg-slate-50 p-2 text-xs dark:bg-slate-800">
-										<span className="font-medium">Effect:</span> {skin.effect}
+										<span className="font-medium">{t.effect_label}:</span>{" "}
+										{skin.effect}
 									</div>
 								</CardContent>
 							</Card>

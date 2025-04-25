@@ -16,11 +16,16 @@ import {
 import { useMediaQuery } from "@/hooks/use-mobile";
 import { RouteConfig } from "@/lib/config/routeConfig";
 import { ArrowUpCircle, Sparkles } from "lucide-react";
+import { useMessages } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function AwakeningTab() {
 	const isDesktop = useMediaQuery("(min-width: 768px)");
+
+	const t = useMessages().Tabs["Character-tab"].Awakening;
+	const statsT = useMessages().Stats;
+	const resourcesT = useMessages().Resources;
 
 	//TODO: heere numbers are calculated with leah items but should be wothout or mentioned that this is multiplies from items
 	const awakeningTiers = [
@@ -28,188 +33,188 @@ export default function AwakeningTab() {
 			name: "Red",
 			image: "/characters/red.png",
 			stats: [
-				{ name: "Wind ATK", value: "+135000" },
-				{ name: "Water ATK", value: "+135000" },
-				{ name: "Earth ATK", value: "+135000" },
-				{ name: "DEX", value: "+27000" },
-				{ name: "Trait ATK%", value: "+2700" },
-				{ name: "Accuracy", value: "+27000" },
-				{ name: "Trait Coefficient%", value: "+4212" },
-				{ name: "Penetration DMG%", value: "+10107.5" },
-				{ name: "Skill DMG%", value: "+2520" },
-				{ name: "Life", value: "+687753" },
+				{ name: statsT.wind_atk, value: "+135000" },
+				{ name: statsT.water_atk, value: "+135000" },
+				{ name: statsT.earth_atk, value: "+135000" },
+				{ name: statsT.dex, value: "+27000" },
+				{ name: `${statsT.trait_atack}%`, value: "+2700" },
+				{ name: statsT.accuracy, value: "+27000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+4212" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+10107.5" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2520" },
+				{ name: statsT.life, value: "+687753" },
 			],
 		},
 		{
 			name: "Black",
 			image: "/characters/black.png",
 			stats: [
-				{ name: "Trait ATK%", value: "+2700" },
-				{ name: "Accuracy", value: "+27000" },
-				{ name: "Min ATK", value: "+108000" },
-				{ name: "Fire ATK", value: "+135000" },
-				{ name: "STR", value: "+27000" },
-				{ name: "CRIT ATK%", value: "+4050" },
-				{ name: "Trait Coefficient%", value: "+4338.36" },
-				{ name: "Penetration DMG%", value: "+10259.11" },
-				{ name: "Skill DMG%", value: "+2557.8" },
-				{ name: "Life", value: "+698069.29" },
+				{ name: `${statsT.trait_atack}%`, value: "+2700" },
+				{ name: statsT.accuracy, value: "+27000" },
+				{ name: statsT.min_atk, value: "+108000" },
+				{ name: statsT.fire_atk, value: "+135000" },
+				{ name: statsT.str, value: "+27000" },
+				{ name: `${statsT.crit_atk}%`, value: "+4050" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+4338.36" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+10259.11" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2557.8" },
+				{ name: statsT.life, value: "+698069.29" },
 			],
 		},
 		{
 			name: "Death Knight",
 			image: "/characters/death_knight.png",
 			stats: [
-				{ name: "Max ATK", value: "+16200" },
-				{ name: "Accuracy", value: "+27000" },
-				{ name: "Wind ATK", value: "+135000" },
-				{ name: "Earth ATK", value: "+135000" },
-				{ name: "Evasion", value: "+27000" },
-				{ name: "Water ATK", value: "+135000" },
-				{ name: "Trait Coefficient%", value: "+4464.72" },
-				{ name: "Penetration DMG%", value: "+10410.72" },
-				{ name: "Skill DMG%", value: "+2595.6" },
-				{ name: "Life", value: "+708385.59" },
+				{ name: statsT.max_atk, value: "+16200" },
+				{ name: statsT.accuracy, value: "+27000" },
+				{ name: statsT.wind_atk, value: "+135000" },
+				{ name: statsT.earth_atk, value: "+135000" },
+				{ name: statsT.evasion, value: "+27000" },
+				{ name: statsT.water_atk, value: "+135000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+4464.72" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+10410.72" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2595.6" },
+				{ name: statsT.life, value: "+708385.59" },
 			],
 		},
 		{
 			name: "Dark Knight",
 			image: "/characters/dark_knight.png",
 			stats: [
-				{ name: "Water ATK", value: "+135000" },
-				{ name: "Wind ATK", value: "+135000" },
-				{ name: "ATK%", value: "+2700" },
-				{ name: "Min ATK", value: "+108000" },
-				{ name: "STR", value: "+27000" },
-				{ name: "Earth ATK", value: "+135000" },
-				{ name: "Trait Coefficient%", value: "+4591.08" },
-				{ name: "Penetration DMG%", value: "+10562.34" },
-				{ name: "Skill DMG%", value: "+2633.39" },
-				{ name: "Life", value: "+718701.88" },
+				{ name: statsT.water_atk, value: "+135000" },
+				{ name: statsT.wind_atk, value: "+135000" },
+				{ name: `${statsT.atk}%`, value: "+2700" },
+				{ name: statsT.min_atk, value: "+108000" },
+				{ name: statsT.str, value: "+27000" },
+				{ name: statsT.earth_atk, value: "+135000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+4591.08" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+10562.34" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2633.39" },
+				{ name: statsT.life, value: "+718701.88" },
 			],
 		},
 		{
 			name: "Ark Knight",
 			image: "/characters/ark_knight.png",
 			stats: [
-				{ name: "Wind ATK", value: "+135000" },
-				{ name: "Water ATK", value: "+135000" },
-				{ name: "Fire ATK", value: "+135000" },
-				{ name: "Trait ATK%", value: "+2700" },
-				{ name: "Earth ATK", value: "+135000" },
-				{ name: "Accuracy", value: "+27000" },
-				{ name: "Trait Coefficient%", value: "+4717.44" },
-				{ name: "Penetration DMG%", value: "+10713.95" },
-				{ name: "Skill DMG%", value: "+2671.20" },
-				{ name: "Life", value: "+729018.18" },
+				{ name: statsT.wind_atk, value: "+135000" },
+				{ name: statsT.water_atk, value: "+135000" },
+				{ name: statsT.fire_atk, value: "+135000" },
+				{ name: `${statsT.trait_atack}%`, value: "+2700" },
+				{ name: statsT.earth_atk, value: "+135000" },
+				{ name: statsT.accuracy, value: "+27000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+4717.44" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+10713.95" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2671.20" },
+				{ name: statsT.life, value: "+729018.18" },
 			],
 		},
 		{
 			name: "Knight King",
 			image: "/characters/knight_king.png",
 			stats: [
-				{ name: "Water ATK", value: "+135000" },
-				{ name: "Max ATK", value: "+162000" },
-				{ name: "Evasion", value: "+27000" },
-				{ name: "ATK%", value: "+2700" },
-				{ name: "Min ATK", value: "+108000" },
-				{ name: "Earth ATK", value: "+135000" },
-				{ name: "Trait Coefficient%", value: "+4843.80" },
-				{ name: "Penetration DMG%", value: "+10865.56" },
-				{ name: "Skill DMG%", value: "+2709" },
-				{ name: "Life", value: "+739334.47" },
+				{ name: statsT.water_atk, value: "+135000" },
+				{ name: statsT.max_atk, value: "+162000" },
+				{ name: statsT.evasion, value: "+27000" },
+				{ name: `${statsT.atk}%`, value: "+2700" },
+				{ name: statsT.min_atk, value: "+108000" },
+				{ name: statsT.earth_atk, value: "+135000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+4843.80" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+10865.56" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2709" },
+				{ name: statsT.life, value: "+739334.47" },
 			],
 		},
 		{
 			name: "Devil King",
 			image: "/characters/devil_king.png",
 			stats: [
-				{ name: "Accuracy", value: "+27000" },
-				{ name: "Wind ATK", value: "+135000" },
-				{ name: "Water ATK", value: "+135000" },
-				{ name: "Earth ATK", value: "+135000" },
-				{ name: "DEX", value: "+270000" },
-				{ name: "Trait ATK%", value: "+2700" },
-				{ name: "Trait Coefficient%", value: "+4870.16" },
-				{ name: "Penetration DMG%", value: "+11017.17" },
-				{ name: "Skill DMG%", value: "+2746.8" },
-				{ name: "Life", value: "+749650.77" },
+				{ name: statsT.accuracy, value: "+27000" },
+				{ name: statsT.wind_atk, value: "+135000" },
+				{ name: statsT.water_atk, value: "+135000" },
+				{ name: statsT.earth_atk, value: "+135000" },
+				{ name: statsT.dex, value: "+270000" },
+				{ name: `${statsT.trait_atack}%`, value: "+2700" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+4870.16" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+11017.17" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2746.8" },
+				{ name: statsT.life, value: "+749650.77" },
 			],
 		},
 		{
 			name: "Soul King",
 			image: "/characters/soul_king.png",
 			stats: [
-				{ name: "Accuracy 27000", value: "+27000" },
-				{ name: "DEX", value: "+27000" },
-				{ name: "Trait ATK%", value: "+2700" },
-				{ name: "Water ATK", value: "+135000" },
-				{ name: "Earth ATK", value: "+135000" },
-				{ name: "Wind ATK", value: "+135000" },
-				{ name: "Trait Coefficient%", value: "+5096.52" },
-				{ name: "Penetration DMG%", value: "+11168.79" },
-				{ name: "Skill DMG%", value: "+2784.60" },
-				{ name: "Life", value: "+759967.06" },
+				{ name: statsT.accuracy, value: "+27000" },
+				{ name: statsT.dex, value: "+27000" },
+				{ name: `${statsT.trait_atack}%`, value: "+2700" },
+				{ name: statsT.water_atk, value: "+135000" },
+				{ name: statsT.earth_atk, value: "+135000" },
+				{ name: statsT.wind_atk, value: "+135000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+5096.52" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+11168.79" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2784.60" },
+				{ name: statsT.life, value: "+759967.06" },
 			],
 		},
 		{
 			name: "Leoric",
 			image: "/characters/leoric.png",
 			stats: [
-				{ name: "Wind ATK", value: "+115,000" },
-				{ name: "Earth ATK", value: "+115,000" },
-				{ name: "DEX", value: "+23,000" },
-				{ name: "Trait ATK%", value: "+2,300%" },
-				{ name: "Accuracy", value: "+23,000" },
-				{ name: "Trait Coefficient", value: "+3,500%" },
-				{ name: "Penetrating DMG%", value: "+8,500%" },
-				{ name: "Skill Damage%", value: "+2,000%" },
-				{ name: "Life", value: "+500,000" },
+				{ name: statsT.wind_atk, value: "+115,000" },
+				{ name: statsT.earth_atk, value: "+115,000" },
+				{ name: statsT.dex, value: "+23,000" },
+				{ name: `${statsT.trait_atack}%`, value: "+2,300%" },
+				{ name: statsT.accuracy, value: "+23,000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+3,500%" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+8,500%" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2,000%" },
+				{ name: statsT.life, value: "+500,000" },
 			],
 		},
 		{
 			name: "Arthas",
 			image: "/characters/arthas.png",
 			stats: [
-				{ name: "Wind ATK", value: "+125,000" },
-				{ name: "Earth ATK", value: "+125,000" },
-				{ name: "DEX", value: "+25,000" },
-				{ name: "Trait ATK%", value: "+2,500%" },
-				{ name: "Accuracy", value: "+25,000" },
-				{ name: "Trait Coefficient", value: "+3,800%" },
-				{ name: "Penetrating DMG%", value: "+9,000%" },
-				{ name: "Skill Damage%", value: "+2,200%" },
-				{ name: "Life", value: "+600,000" },
+				{ name: statsT.wind_atk, value: "+125,000" },
+				{ name: statsT.earth_atk, value: "+125,000" },
+				{ name: statsT.dex, value: "+25,000" },
+				{ name: `${statsT.trait_atack}%`, value: "+2,500%" },
+				{ name: statsT.accuracy, value: "+25,000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+3,800%" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+9,000%" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2,200%" },
+				{ name: statsT.life, value: "+600,000" },
 			],
 		},
 		{
 			name: "Knight Shadow",
 			image: "/characters/knight_shadow.png",
 			stats: [
-				{ name: "Wind ATK", value: "+130,000" },
-				{ name: "Earth ATK", value: "+130,000" },
-				{ name: "DEX", value: "+26,000" },
-				{ name: "Trait ATK%", value: "+2,600%" },
-				{ name: "Accuracy", value: "+26,000" },
-				{ name: "Trait Coefficient", value: "+4,000%" },
-				{ name: "Penetrating DMG%", value: "+9,500%" },
-				{ name: "Skill Damage%", value: "+2,400%" },
-				{ name: "Life", value: "+650,000" },
+				{ name: statsT.wind_atk, value: "+130,000" },
+				{ name: statsT.earth_atk, value: "+130,000" },
+				{ name: statsT.dex, value: "+26,000" },
+				{ name: `${statsT.trait_atack}%`, value: "+2,600%" },
+				{ name: statsT.accuracy, value: "+26,000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+4,000%" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+9,500%" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2,400%" },
+				{ name: statsT.life, value: "+650,000" },
 			],
 		},
 		{
 			name: "Demon Slayer",
 			image: "/characters/demon_slayer.png",
 			stats: [
-				{ name: "Wind ATK", value: "+135,000" },
-				{ name: "Earth ATK", value: "+135,000" },
-				{ name: "DEX", value: "+27,000" },
-				{ name: "Trait ATK%", value: "+2,700%" },
-				{ name: "Accuracy", value: "+27,000" },
-				{ name: "Trait Coefficient", value: "+4,212%" },
-				{ name: "Penetrating DMG%", value: "+10,107.5%" },
-				{ name: "Skill Damage%", value: "+2,520%" },
-				{ name: "Life", value: "+687,753" },
+				{ name: statsT.wind_atk, value: "+135,000" },
+				{ name: statsT.earth_atk, value: "+135,000" },
+				{ name: statsT.dex, value: "+27,000" },
+				{ name: `${statsT.trait_atack}%`, value: "+2,700%" },
+				{ name: statsT.accuracy, value: "+27,000" },
+				{ name: `${statsT.trait_coefficient}%`, value: "+4,212%" },
+				{ name: `${statsT.penetration_dmg}%`, value: "+10,107.5%" },
+				{ name: `${statsT.skill_dmg}%`, value: "+2,520%" },
+				{ name: statsT.life, value: "+687,753" },
 			],
 		},
 	];
@@ -219,59 +224,59 @@ export default function AwakeningTab() {
 			<CardHeader>
 				<CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
 					<Sparkles className="h-5 w-5 text-primary sm:h-6 sm:w-6" />
-					Character Awakening
+					{t.title}
 				</CardTitle>
-				<CardDescription>
-					Unlock your character's true potential through the awakening system
-				</CardDescription>
+				<CardDescription>{t.description}</CardDescription>
 			</CardHeader>
 			<CardContent className="p-3 sm:p-6">
 				<div className="space-y-4 sm:space-y-6">
 					<div className="rounded-lg">
 						<p className="text-slate-700 text-xs leading-relaxed sm:text-sm dark:text-slate-300">
-							Starting at level 600, you will unlock the awakening system which
-							uses{" "}
+							{t.intro_text_1}{" "}
 							<Link
 								href={RouteConfig.data_base.resources.candle}
 								className="font-medium text-primary hover:text-primary/80 dark:text-primary dark:hover:text-primary/80"
 							>
-								candles
+								{resourcesT.candle}
 							</Link>{" "}
-							and{" "}
+							{t.intro_text_2}{" "}
 							<Link
 								href={RouteConfig.data_base.resources.chalice}
 								className="font-medium text-primary hover:text-primary/80 dark:text-primary dark:hover:text-primary/80"
 							>
-								chalices of darkness
+								{resourcesT.chalice_of_drakness}
 							</Link>{" "}
-							to significantly boost your character's power.
+							{t.intro_text_3}
 						</p>
 						<ul className="mt-2 list-disc pl-5 text-slate-700 text-xs sm:text-sm dark:text-slate-300">
 							<li>
-								Use <span className="font-bold">candles</span> to upgrade
-								individual stats (max level: 600 for each skin)
+								{t.candles_use_1}{" "}
+								<span className="font-bold">{resourcesT.candle}</span>{" "}
+								{t.candles_use_2}
 							</li>
 							<li>
-								Use <span className="font-bold">chalices of darkness</span> to
-								increase stat multipliers (max multiplier: x3)
+								{t.chalices_use_1}{" "}
+								<span className="font-bold">
+									{resourcesT.chalice_of_drakness}
+								</span>{" "}
+								{t.chalices_use_2}
 							</li>
 							<li>
-								To open awakening of next skin you need to max only stats with{" "}
-								<span className="font-bold">candles</span>
+								{t.next_skin_text_1}{" "}
+								<span className="font-bold">{resourcesT.candle}</span>
 							</li>
 						</ul>
 					</div>
 
 					<h3 className="flex items-center font-semibold text-base sm:text-lg">
 						<Sparkles className="mr-2 h-4 w-4 text-primary sm:h-5 sm:w-5" />
-						Maxed awakening Stats(with leah items)
+						{t.maxed_stats_title}
 					</h3>
 
 					<div className="mt-4 rounded-md bg-amber-50 p-2 sm:p-3 dark:bg-amber-950/30">
 						<p className="flex items-center font-medium text-amber-800 text-xs sm:text-sm dark:text-amber-400">
 							<ArrowUpCircle className="mr-2 h-4 w-4 flex-shrink-0" />
-							stats from 1-6 may vary in order, only 4 last stats are the same
-							always
+							{t.stats_vary_note}
 						</p>
 					</div>
 					{isDesktop ? (
@@ -280,14 +285,12 @@ export default function AwakeningTab() {
 								<TableHeader>
 									<TableRow>
 										<TableHead className="w-[80px] sm:w-[150px]">
-											Skin
+											{t.skin_column}
 										</TableHead>
 										<TableHead className="w-[60px] sm:w-[120px]">
-											Preview
+											{t.preview_column}
 										</TableHead>
-										<TableHead>
-											Awakening Stats (Maximum Values, with leah items).
-										</TableHead>
+										<TableHead>{t.awakening_stats_column}</TableHead>
 									</TableRow>
 								</TableHeader>
 
@@ -299,7 +302,7 @@ export default function AwakeningTab() {
 												<div className="relative h-12 w-12 overflow-hidden rounded-md sm:h-16 sm:w-16">
 													<Image
 														src={tier.image || "/placeholder.svg"}
-														alt={`${tier.name} awakening skin`}
+														alt={`${tier.name} ${t.awakening_skin_alt}`}
 														width={64}
 														height={64}
 														className="object-cover"
@@ -333,7 +336,7 @@ export default function AwakeningTab() {
 											<div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-md">
 												<Image
 													src={tier.image || "/placeholder.svg"}
-													alt={`${tier.name} awakening skin`}
+													alt={`${tier.name} ${t.awakening_skin_alt}`}
 													width={56}
 													height={56}
 													className="object-cover"

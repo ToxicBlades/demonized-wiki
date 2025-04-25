@@ -17,46 +17,51 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMediaQuery } from "@/hooks/use-mobile";
 import { RouteConfig } from "@/lib/config/routeConfig";
 import { ArrowUp, Crosshair, MoveHorizontal, Shield, Zap } from "lucide-react";
+import { useMessages } from "next-intl";
 import Link from "next/link";
 
 export default function UpgradeTab() {
 	const isDesktop = useMediaQuery("(min-width: 768px)");
 
+	const t = useMessages().Tabs["Character-tab"].Upgrade;
+	const statsT = useMessages().Stats;
+	const resourcesT = useMessages().Resources;
+
 	const attributes = [
 		{
-			name: "Max ATK",
+			name: statsT.max_atk,
 			icon: <Zap className="h-4 w-4 text-primary" />,
-			benefit: "+5 per upgrade",
+			benefit: t.max_atk_benefit,
 			link: null,
 		},
 		{
-			name: "ATK %",
+			name: `${statsT.atk}%`,
 			icon: <Zap className="h-4 w-4 text-primary" />,
-			benefit: "+0.1% per upgrade",
+			benefit: t.atk_percent_benefit,
 			link: null,
 		},
 		{
-			name: "Accuracy",
+			name: statsT.accuracy,
 			icon: <Crosshair className="h-4 w-4 text-primary" />,
-			benefit: "+1 per upgrade",
+			benefit: t.accuracy_benefit,
 			link: null,
 		},
 		{
-			name: "Evasion",
+			name: statsT.evasion,
 			icon: <Shield className="h-4 w-4 text-primary" />,
-			benefit: "+1 per upgrade",
+			benefit: t.evasion_benefit,
 			link: null,
 		},
 		{
-			name: "Attack Speed %",
+			name: `${statsT.atack_speed}%`,
 			icon: <Zap className="h-4 w-4" />,
-			benefit: "+0.1% per upgrade",
+			benefit: t.aspd_percent_benefit,
 			link: RouteConfig.data_base.stats.aspd,
 		},
 		{
-			name: "Move Speed %",
+			name: `${statsT.move_speed}%`,
 			icon: <MoveHorizontal className="h-4 w-4" />,
-			benefit: "+0.1% per upgrade",
+			benefit: t.mspd_percent_benefit,
 			link: RouteConfig.data_base.stats.mspd,
 		},
 	];
@@ -66,26 +71,22 @@ export default function UpgradeTab() {
 			<CardHeader>
 				<CardTitle className="flex items-center gap-2 text-xl sm:text-2xl">
 					<ArrowUp className="h-5 w-5 text-primary sm:h-6 sm:w-6" />
-					Character Upgrades
+					{t.title}
 				</CardTitle>
-				<CardDescription>
-					Enhance your character by distributing Monster Meat for attribute
-					upgrades
-				</CardDescription>
+				<CardDescription>{t.description}</CardDescription>
 			</CardHeader>
 			<CardContent className="p-3 sm:p-6">
 				<div className="space-y-4 sm:space-y-6">
 					<div className="rounded-lg">
 						<p className="text-slate-700 text-xs leading-relaxed sm:text-sm dark:text-slate-300">
-							Players can use{" "}
+							{t.intro_text_1}{" "}
 							<Link
 								href={RouteConfig.data_base.resources.monster_meat}
 								className="font-medium text-primary hover:text-primary/80 dark:text-primary dark:hover:text-primary/80"
 							>
-								Monster Meat
+								{resourcesT.monster_meat}
 							</Link>{" "}
-							to upgrade various character attributes, providing permanent stat
-							improvements.
+							{t.intro_text_2}
 						</p>
 					</div>
 
@@ -95,9 +96,9 @@ export default function UpgradeTab() {
 								<TableHeader>
 									<TableRow>
 										<TableHead className="w-[100px] sm:w-[150px]">
-											Attribute
+											{t.attribute_column}
 										</TableHead>
-										<TableHead>Benefits per Upgrade</TableHead>
+										<TableHead>{t.benefits_column}</TableHead>
 									</TableRow>
 								</TableHeader>
 								<TableBody>
@@ -155,36 +156,32 @@ export default function UpgradeTab() {
 
 					<Tabs defaultValue="beginner" className="w-full">
 						<h3 className="mb-3 font-semibold text-base sm:text-lg">
-							Recommended Upgrade Strategies
+							{t.strategies_title}
 						</h3>
 						<TabsList className="grid w-full grid-cols-3">
-							<TabsTrigger value="beginner">Beginner</TabsTrigger>
-							<TabsTrigger value="midgame">Mid-Game</TabsTrigger>
-							<TabsTrigger value="endgame">End-Game</TabsTrigger>
+							<TabsTrigger value="beginner">{t.beginner}</TabsTrigger>
+							<TabsTrigger value="midgame">{t.midgame}</TabsTrigger>
+							<TabsTrigger value="endgame">{t.endgame}</TabsTrigger>
 						</TabsList>
 						<TabsContent value="beginner" className="mt-4 space-y-4">
 							<Card>
 								<CardHeader className="pb-2">
 									<CardTitle className="text-base sm:text-lg">
-										Beginner Strategy
+										{t.beginner_strategy}
 									</CardTitle>
-									<CardDescription>
-										Best for new players starting the game
-									</CardDescription>
+									<CardDescription>{t.beginner_description}</CardDescription>
 								</CardHeader>
 								<CardContent>
 									<div className="flex flex-wrap gap-2">
 										<div className="rounded-full bg-blue-100 px-2 py-1 font-medium text-blue-800 text-xs sm:px-3 sm:text-sm dark:bg-blue-900 dark:text-blue-200">
-											Attack Speed: to lvl 500(max)
+											{statsT.atack_speed}: {t.aspd_max_level}
 										</div>
 										<div className="rounded-full bg-green-100 px-2 py-1 font-medium text-green-800 text-xs sm:px-3 sm:text-sm dark:bg-green-900 dark:text-green-200">
-											Move Speed: to lvl 200(max)
+											{statsT.move_speed}: {t.mspd_max_level}
 										</div>
 									</div>
 									<p className="mt-3 text-slate-600 text-xs sm:text-sm dark:text-slate-400">
-										Focus on maxing out Attack Speed first, then Move Speed.
-										These stats are difficult to acquire from other sources and
-										provide significant advantages in early gameplay.
+										{t.beginner_explanation}
 									</p>
 								</CardContent>
 							</Card>
@@ -193,25 +190,21 @@ export default function UpgradeTab() {
 							<Card>
 								<CardHeader className="pb-2">
 									<CardTitle className="text-base sm:text-lg">
-										Mid-Game Strategy
+										{t.midgame_strategy}
 									</CardTitle>
-									<CardDescription>
-										For players in the middle stages
-									</CardDescription>
+									<CardDescription>{t.midgame_description}</CardDescription>
 								</CardHeader>
 								<CardContent>
 									<div className="flex flex-wrap gap-2">
 										<div className="rounded-full bg-purple-100 px-2 py-1 font-medium text-purple-800 text-xs sm:px-3 sm:text-sm dark:bg-purple-900 dark:text-purple-200">
-											Accuracy: 50%
+											{statsT.accuracy}: {t.accuracy_percent}
 										</div>
 										<div className="rounded-full bg-yellow-100 px-2 py-1 font-medium text-xs text-yellow-800 sm:px-3 sm:text-sm dark:bg-yellow-900 dark:text-yellow-200">
-											Evasion: 50%
+											{statsT.evasion}: {t.evasion_percent}
 										</div>
 									</div>
 									<p className="mt-3 text-slate-600 text-xs sm:text-sm dark:text-slate-400">
-										After maximizing Attack and Move Speed, distribute upgrades
-										evenly between Accuracy and Evasion for a balanced approach
-										to both offensive and defensive capabilities.
+										{t.midgame_explanation}
 									</p>
 								</CardContent>
 							</Card>
@@ -220,23 +213,18 @@ export default function UpgradeTab() {
 							<Card>
 								<CardHeader className="pb-2">
 									<CardTitle className="text-base sm:text-lg">
-										End-Game Strategy
+										{t.endgame_strategy}
 									</CardTitle>
-									<CardDescription>
-										For veteran players in the late game
-									</CardDescription>
+									<CardDescription>{t.endgame_description}</CardDescription>
 								</CardHeader>
 								<CardContent>
 									<div className="flex flex-wrap gap-2">
 										<div className="rounded-full bg-purple-100 px-2 py-1 font-medium text-purple-800 text-xs sm:px-3 sm:text-sm dark:bg-purple-900 dark:text-purple-200">
-											Accuracy: 100%
+											{statsT.accuracy}: {t.accuracy_full_percent}
 										</div>
 									</div>
 									<p className="mt-3 text-slate-600 text-xs sm:text-sm dark:text-slate-400">
-										In the end game, focus entirely on Accuracy. The numbers are
-										super low at this stage, and Accuracy becomes the most
-										important stat from all available upgrades for successful
-										high-level encounters.
+										{t.endgame_explanation}
 									</p>
 								</CardContent>
 							</Card>
