@@ -1,0 +1,29 @@
+{
+  "Stats":{
+    "dex": "DEX",
+    "str": "STR",
+    "agi": "AGI",
+    "luk": "LUK",
+
+    "atk":"ATK",
+    "min_atk":"Min ATK",
+    "max_atk":"Max ATK",
+
+    "water_atk":"Water ATK",
+    "earth_atk":"Earth ATK",
+    "fire_atk":"Fire ATK",
+    "wind_atk":"Wind ATK",
+
+    "accuracy":"Accuracy",
+    "evasion":"Evasion",
+    "life": "Life",
+
+    "trait_atack" : "Trait ATK",
+    "trait_coefficient":"Trait Coeffiecient",
+    "skill_dmg":"Skill DMG",
+    "penetration_dmg":"Penegration DMG"
+  },
+  "Layout":{
+    "logo_text":"Unofficial Demonized Wiki"
+  }
+}

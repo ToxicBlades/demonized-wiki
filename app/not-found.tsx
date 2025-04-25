@@ -4,7 +4,7 @@ import { ThemeSwitcher } from "@/components/themeSwitcher";
 import { RouteConfig } from "@/lib/config/routeConfig";
 import Link from "next/link";
 
-export default async function RootLayout() {
+export default async function NotFound() {
 	return (
 		<div className="flex">
 			<div className="flex flex-grow flex-col">

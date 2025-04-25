@@ -15,19 +15,19 @@ const contributors = [
     id: 1,
     nickname: "[S10] IUDEXG",
     contribution:
-      "Provided not only a best algorithm but also a source code with visualisation for most effecient mining",
+      "Provided not only a best algorithm but also a source code with visualisation for most efficient mining",
   },
   {
     id: 2,
     nickname: "[S10] Killerrr",
     contribution:
-      "Provided maxes mystical power screenshots",
+      "Provided maxed mystical power screenshots",
   },
   {
     id: 3,
     nickname: "[S81] gEiStToG",
     contribution:
-      "Provided Maxed awakening screenshots",
+      "Provided all maxed awakening screenshots",
   },
 ]
 
