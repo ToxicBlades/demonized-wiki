@@ -6,6 +6,7 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
+		"generate-icon-types": "node scripts/generate-icons.js",
 		"lint": "biome check ../",
 		"lint:fix": "biome check --fix --unsafe ./",
 		"format": "biome format --fix ./"
