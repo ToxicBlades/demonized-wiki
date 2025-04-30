@@ -1,3 +1,4 @@
+import { Icon } from "@/components/icons/icon";
 import {
 	Card,
 	CardContent,
@@ -31,25 +32,25 @@ export default function StatTab() {
 	const stats = [
 		{
 			name: statsT.str,
-			icon: <Dumbbell className="h-4 w-4" />,
+			icon: <Icon category="stats" name="str"/>,
 			benefit: `+4 ${statsT.min_atk} & +6 ${statsT.max_atk}`,
 			link: RouteConfig.data_base.stats.str,
 		},
 		{
 			name: statsT.dex,
-			icon: <Zap className="h-4 w-4" />,
+			icon: <Icon category="stats" name="dex"/>,
 			benefit: `+0.1% ${statsT.atk} & +0.15% CRIT ${statsT.atk}`,
 			link: RouteConfig.data_base.stats.dex,
 		},
 		{
 			name: statsT.agi,
-			icon: <Activity className="h-4 w-4" />,
+			icon:  <Icon category="common" name="placeholder"/>,
 			benefit: `+0.05% CRIT CHANCE & +0.5% ${statsT.evasion}`,
 			link: RouteConfig.data_base.stats.agi,
 		},
 		{
 			name: statsT.luk,
-			icon: <Sparkles className="h-4 w-4" />,
+			icon: <Icon category="common" name="placeholder"/>,
 			benefit: `+10 ${statsT.life} & +0.5% ${statsT.accuracy}`,
 			link: RouteConfig.data_base.stats.luk,
 		},
