@@ -43,6 +43,7 @@
 		"trait_coefficient": "Trait Coefficient",
 		"skill_dmg": "Skill DMG",
 		"penetration_dmg": "Penetration DMG",
+		"penetration_chance": "Penetration Chance",
 		"atack_speed": "Atack Speed",
 		"move_speed": "Move Speed"
 	},
@@ -237,6 +238,12 @@
 				"endgame_description": "For veteran players in the late game",
 				"accuracy_full_percent": "100%",
 				"endgame_explanation": "In the end game, focus entirely on Accuracy. The numbers are super low at this stage, and Accuracy becomes the most important stat from all available upgrades for successful high-level encounters."
+			},
+			"MysticalPower": {
+				"title": "Mystical Powers",
+				"description": "Discover powerful abilities that enhance your character's capabilities",
+				"intro_text": "intro text",
+				"required_level": "Required Level"
 			},
 			"Appearance": {
 				"title": "Appearance Ability",

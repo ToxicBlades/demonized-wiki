@@ -146,13 +146,13 @@ export default function PromoteTab() {
 										</TableHead>
 										<TableHead>
 											<div className="flex items-center gap-1">
-											<Icon category="stats" name="str"/>,
+												<Icon category="stats" name="str" />,
 												<span>{t.str_per_level}</span>
 											</div>
 										</TableHead>
 										<TableHead>
 											<div className="flex items-center gap-1">
-											<Icon category="common" name="placeholder"/>,
+												<Icon category="common" name="placeholder" />,
 												<span>{t.aspd_per_level}</span>
 											</div>
 										</TableHead>

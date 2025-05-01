@@ -31,37 +31,37 @@ export default function UpgradeTab() {
 	const attributes = [
 		{
 			name: statsT.max_atk,
-			icon: <Icon category="stats" name="max_atk"/>,
+			icon: <Icon category="stats" name="max_atk" />,
 			benefit: t.max_atk_benefit,
 			link: null,
 		},
 		{
 			name: `${statsT.atk}%`,
-			icon: <Icon category="stats" name="atk_percent"/>,
+			icon: <Icon category="stats" name="atk_percent" />,
 			benefit: t.atk_percent_benefit,
 			link: null,
 		},
 		{
 			name: statsT.accuracy,
-			icon:<Icon category="stats" name="accuracy"/>,
+			icon: <Icon category="stats" name="accuracy" />,
 			benefit: t.accuracy_benefit,
 			link: null,
 		},
 		{
 			name: statsT.evasion,
-			icon: <Icon category="stats" name="evasion"/>,
+			icon: <Icon category="stats" name="evasion" />,
 			benefit: t.evasion_benefit,
 			link: null,
 		},
 		{
 			name: `${statsT.atack_speed}%`,
-			icon: <Icon category="common" name="placeholder"/>,
+			icon: <Icon category="common" name="placeholder" />,
 			benefit: t.aspd_percent_benefit,
 			link: RouteConfig.data_base.stats.aspd,
 		},
 		{
 			name: `${statsT.move_speed}%`,
-			icon: <Icon category="common" name="placeholder"/>,
+			icon: <Icon category="common" name="placeholder" />,
 			benefit: t.mspd_percent_benefit,
 			link: RouteConfig.data_base.stats.mspd,
 		},
