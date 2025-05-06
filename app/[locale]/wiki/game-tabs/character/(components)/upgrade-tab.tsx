@@ -55,13 +55,13 @@ export default function UpgradeTab() {
 		},
 		{
 			name: `${statsT.atack_speed}%`,
-			icon: <Icon category="common" name="placeholder" />,
+			icon: <Icon category="stats" name="aspd" />,
 			benefit: t.aspd_percent_benefit,
 			link: RouteConfig.data_base.stats.aspd,
 		},
 		{
 			name: `${statsT.move_speed}%`,
-			icon: <Icon category="common" name="placeholder" />,
+			icon: <Icon category="stats" name="mspd" />,
 			benefit: t.mspd_percent_benefit,
 			link: RouteConfig.data_base.stats.mspd,
 		},
