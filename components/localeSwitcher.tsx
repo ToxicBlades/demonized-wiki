@@ -16,12 +16,11 @@ import { useState } from "react";
 // Export the language type that can be used throughout the application
 
 // Define the supported languages
-const SUPPORTED_LANGUAGES: languages[] = ["en", "ru"];
+const SUPPORTED_LANGUAGES: languages[] = ["en"];
 
 // Define the language labels
 const LANGUAGE_LABELS: Record<languages, string> = {
-	en: "English",
-	ru: "Russian",
+	en: "English"
 };
 
 export function LanguageSwitcher() {
