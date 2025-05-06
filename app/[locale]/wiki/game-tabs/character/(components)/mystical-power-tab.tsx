@@ -791,10 +791,12 @@ export default function PromoteTab() {
 			<CardContent className="p-3 sm:p-6">
 				<div className="space-y-4 sm:space-y-6">
 					<div className="mt-4 rounded-md bg-amber-50 p-2 sm:p-3 dark:bg-amber-950/30">
-						<p className="flex items-center gap-2 font-medium text-amber-800 text-xs sm:text-sm dark:text-amber-400">
+						<p className="flex items-center font-medium text-amber-800 text-xs sm:text-sm dark:text-amber-400">
+							<div>
 							<ArrowUpCircle className="mr-2 h-4 w-4 flex-shrink-0" />
 							{t.tip}:{" "}
 							<Link href={RouteConfig.data_base.relics}>{t.relic}</Link>
+							</div>
 						</p>
 					</div>
 					<Tabs

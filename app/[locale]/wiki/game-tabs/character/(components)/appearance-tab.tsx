@@ -341,6 +341,12 @@ export default function AppearanceTab() {
 			source: t.dragon_tamer_source,
 			effect: t.dragon_tamer_effect,
 		},
+		{
+			name: t.golden_lion,
+			image: "/skins/golden_lion.png",
+			source: t.golden_lion_source,
+			effect: t.golden_lion_effect,
+		},
 	];
 
 	const toggleTier = (tierName: string) => {
