@@ -37,6 +37,16 @@ export default function ContributorsPage() {
 			nickname: "[S81] gEiStToG",
 			contribution: t.Contributions.gEiStToG,
 		},
+		{
+			id: 4,
+			nickname: "[S265] azpi",
+			contribution: t.Contributions.azpi
+		},
+		{
+			id: 5,
+			nickname: "[S183] justin",
+			contribution: t.Contributions.justin
+		}
 	];
 
 	return (
