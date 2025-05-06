@@ -18,8 +18,10 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMediaQuery } from "@/hooks/use-mobile";
-import { Sparkles } from "lucide-react";
+import { RouteConfig } from "@/lib/config/routeConfig";
+import { ArrowUpCircle, Sparkles } from "lucide-react";
 import { useMessages } from "next-intl";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function PromoteTab() {
@@ -585,47 +587,45 @@ export default function PromoteTab() {
 					name: statsT.max_atk,
 					value: "29100",
 				},
-
+			],
+		},
+		{
+			id: "power16",
+			romanNumeral: "XVI",
+			requiredLevel: 2250,
+			stats: [
 				{
-					id: "power16",
-					romanNumeral: "XVI",
-					requiredLevel: 2250,
-					stats: [
-						{
-							icon: <Icon category="stats" name="accuracy" />,
-							name: statsT.accuracy,
-							value: "32250",
-						},
-						{
-							icon: <Icon category="stats" name="evasion" />,
-							name: statsT.evasion,
-							value: "32250",
-						},
-						{
-							icon: <Icon category="stats" name="crit_atk" />,
-							name: `${statsT.crit_atk}%`,
-							value: "405000",
-						},
-						{
-							icon: <Icon category="stats" name="trait_atk" />,
-							name: `${statsT.trait_atack}%`,
-							value: "3100",
-						},
-						{
-							icon: <Icon category="stats" name="atk" />,
-							name: statsT.atk,
-							value: "322500",
-						},
-						{
-							icon: <Icon category="stats" name="atk_percent" />,
-							name: `${statsT.atk}%`,
-							value: "14500",
-						},
-					],
+					icon: <Icon category="stats" name="accuracy" />,
+					name: statsT.accuracy,
+					value: "32250",
+				},
+				{
+					icon: <Icon category="stats" name="evasion" />,
+					name: statsT.evasion,
+					value: "32250",
+				},
+				{
+					icon: <Icon category="stats" name="crit_atk" />,
+					name: `${statsT.crit_atk}%`,
+					value: "405000",
+				},
+				{
+					icon: <Icon category="stats" name="trait_atk" />,
+					name: `${statsT.trait_atack}%`,
+					value: "3100",
+				},
+				{
+					icon: <Icon category="stats" name="atk" />,
+					name: statsT.atk,
+					value: "322500",
+				},
+				{
+					icon: <Icon category="stats" name="atk_percent" />,
+					name: `${statsT.atk}%`,
+					value: "14500",
 				},
 			],
 		},
-
 		{
 			id: "power17",
 			romanNumeral: "XVII",
@@ -786,16 +786,17 @@ export default function PromoteTab() {
 					<Sparkles className="h-5 w-5 text-primary sm:h-6 sm:w-6" />
 					{t.title}
 				</CardTitle>
-				<CardDescription>{t.description}</CardDescription>
+				<CardDescription>{t.intro_text}</CardDescription>
 			</CardHeader>
 			<CardContent className="p-3 sm:p-6">
 				<div className="space-y-4 sm:space-y-6">
-					<div className="rounded-lg">
-						<p className="text-slate-700 text-xs leading-relaxed sm:text-sm dark:text-slate-300">
-							{t.intro_text}
+					<div className="mt-4 rounded-md bg-amber-50 p-2 sm:p-3 dark:bg-amber-950/30">
+						<p className="flex items-center gap-2 font-medium text-amber-800 text-xs sm:text-sm dark:text-amber-400">
+							<ArrowUpCircle className="mr-2 h-4 w-4 flex-shrink-0" />
+							{t.tip}:{" "}
+							<Link href={RouteConfig.data_base.relics}>{t.relic}</Link>
 						</p>
 					</div>
-
 					<Tabs
 						value={selectedPower}
 						onValueChange={setSelectedPower}

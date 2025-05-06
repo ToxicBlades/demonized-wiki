@@ -241,8 +241,9 @@
 			},
 			"MysticalPower": {
 				"title": "Mystical Powers",
-				"description": "Discover powerful abilities that enhance your character's capabilities",
-				"intro_text": "intro text",
+				"intro_text": "Mystical power is content which provide differnt stats for upgrading and +10% Final damage for each page maxed",
+				"tip": "Early on you can ignore this content untill you max initial",
+				"relic": "Relics",
 				"required_level": "Required Level"
 			},
 			"Appearance": {
