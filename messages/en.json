@@ -43,6 +43,7 @@
 		"trait_coefficient": "Trait Coefficient",
 		"skill_dmg": "Skill DMG",
 		"penetration_dmg": "Penetration DMG",
+		"penetration_chance": "Penetration Chance",
 		"atack_speed": "Atack Speed",
 		"move_speed": "Move Speed"
 	},
@@ -238,6 +239,13 @@
 				"accuracy_full_percent": "100%",
 				"endgame_explanation": "In the end game, focus entirely on Accuracy. The numbers are super low at this stage, and Accuracy becomes the most important stat from all available upgrades for successful high-level encounters."
 			},
+			"MysticalPower": {
+				"title": "Mystical Powers",
+				"intro_text": "Mystical power is content which provide differnt stats for upgrading and +10% Final damage for each page maxed",
+				"tip": "Early on you can ignore this content untill you max initial",
+				"relic": "Relics",
+				"required_level": "Required Level"
+			},
 			"Appearance": {
 				"title": "Appearance Ability",
 				"description": "Upgrade your character's appearance and stats through the promotion system",
@@ -255,7 +263,7 @@
 				"tap_to_view": "Tap to view stat ranges",
 				"stat_ranges": "Stat Ranges",
 				"special_appearance": "Special Appearance",
-				"special_appearance_text": "You can receive different skins which have possess effect bonuses",
+				"special_appearance_text": "You can receive different skins which have possess effect bonuses.",
 				"source_column": "Source",
 				"effect_column": "Possess Effect",
 				"special_skin_alt": "special skin",
@@ -277,7 +285,10 @@
 				"dancer_effect": "Appearence Attack Power +1% per level",
 				"dragon_tamer": "Dragon Tamer",
 				"dragon_tamer_source": "Blue Dragon Event",
-				"dragon_tamer_effect": "Appeareance HP +1% per level"
+				"dragon_tamer_effect": "Appeareance HP +1% per level",
+				"golden_lion": "Golden Lion",
+				"golden_lion_source": "Golden Temple Conquest Event",
+				"golden_lion_effect": "Appeareance Attack Power +1% per level"
 			},
 			"Awakening": {
 				"title": "Character Awakening",

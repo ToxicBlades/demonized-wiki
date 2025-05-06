@@ -1,3 +1,4 @@
+import { Icon } from "@/components/icons/icon";
 import {
 	Card,
 	CardContent,
@@ -145,13 +146,13 @@ export default function PromoteTab() {
 										</TableHead>
 										<TableHead>
 											<div className="flex items-center gap-1">
-												<Dumbbell className="h-4 w-4 text-primary" />
+												<Icon category="stats" name="str" />,
 												<span>{t.str_per_level}</span>
 											</div>
 										</TableHead>
 										<TableHead>
 											<div className="flex items-center gap-1">
-												<Zap className="h-4 w-4 text-primary" />
+												<Icon category="common" name="placeholder" />,
 												<span>{t.aspd_per_level}</span>
 											</div>
 										</TableHead>

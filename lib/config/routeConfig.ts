@@ -29,6 +29,7 @@ export const RouteConfig = {
 		character: {
 			experience: `${BASE_URL}/data-base/character/experience`,
 		},
+		relics: `${BASE_URL}/relics`,
 		stats: {
 			str: `${BASE_URL}/data-base/stats/str`,
 			dex: `${BASE_URL}/data-base/stats/dex`,
